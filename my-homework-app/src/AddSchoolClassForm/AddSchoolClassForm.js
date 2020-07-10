@@ -1,9 +1,9 @@
 import React from 'react';
-import ApiContext from '../ApiContext/ApiContext';
-import './ShowDetails.css';
+//import ApiContext from '../ApiContext/ApiContext';
+//import './ShowDetails.css';
 
 class AddSchoolClassForm extends React.Component {
-  static contextType = ApiContext;
+ // static contextType = ApiContext;
   // component that allows user
   // to fill in show details
   static defaultProps = {
@@ -55,8 +55,8 @@ class AddSchoolClassForm extends React.Component {
                 Mon: false,
                 Tue: false,
                 Wed: false,
-                Thursday: false,
-                Friday: false,
+                Thurs: false,
+                Fri: false,
                 Sat: false,
         },
         room: {
@@ -85,21 +85,21 @@ class AddSchoolClassForm extends React.Component {
     this.setState({ startdate: { value: startdate, touched: true } });
   }
 
+  updateEndDate(enddate) {
+    this.setState({ enddate: { value: enddate, touched: true } });
+  }
+
   updateTeacher(teacher) {
-    this.setState({ genre: { value: teacher, touched: true } });
+    this.setState({ teacher: { value: teacher, touched: true } });
   }
 
-  updateSeasons(seasons) {
-    this.setState({ seasons: { value: seasons, touched: true } });
+  updateDay(dayofweek) {
+    let days={...this.state.dayofweek};
+    let checked=!this.state.dayofweek[dayofweek];
+    days[dayofweek] = checked;
+    this.setState({ dayofweek:  days});
   }
 
-  updateDescription(showdescription) {
-    this.setState({ showdescription: { value: showdescription, touched: true } });
-  }
-
-  updateLanguage(showlanguage) {
-    this.setState({ showlanguage: { value: showlanguage, touched: true } });
-  }
 
   render() {
 
@@ -107,46 +107,57 @@ class AddSchoolClassForm extends React.Component {
       <div id="show-details">
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
-          let show = {
-            showname: this.state.showname.value,
+          let schoolClass = {
+            classname: this.state.showname.value,
             finishdate: this.state.finishdate,
             startdate: this.state.startdate,
-            genre: this.state.genre.value,
-            seasons: this.state.seasons.value,
-            showdescription: this.state.showdescription.value,
-            showlanguage: this.state.showlanguage.value
+            building: this.state.genre.building,
+            teacher: this.state.seasons.teacher
+           
           }
           //we needed a callback function for 
           // add show
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-          this.context.addShow(show, (newid) => {
+         /*this.context.addShow(show, (newid) => {
             this.setState({ id: newid });
             this.props.history.push(`/WatchingLog/${newid}`);
-          });
+          });*/
         }}>
-          <h2 className="showDetailsHeading"> Show Details</h2>
+          <h2 className="classDetailsHeading"> Show Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
             Back
         </button>
-          <div className="show__hint">* required field</div>
+          <div className="class__hint">* required field</div>
           <div className="form-group">
-            <label htmlFor="showname">Name *</label>
+            <label htmlFor="classname">Name *</label>
             <input type="text" className="folder__control"
-              name="showname" id="showname" value={this.state.showname.value} onChange={e => this.updateName(e.target.value)} />
+              name="classname" id="classname" value={this.state.classname.value} onChange={e => this.updateName(e.target.value)} />
             <label htmlFor="name">Genre *</label>
             <input type="text" className="folder__control"
-              name="genre" id="genre" value={this.state.genre.value} onChange={e => this.updateGenre(e.target.value)} />
+              name="building" id="building" value={this.state.building.value} onChange={e => this.updateBuilding(e.target.value)} />
             <label htmlFor="name">Number Of Seasons *</label>
             <input type="number" min="1" max="99" className="seasons"
-              name="seasons" id="seasons" value={this.state.seasons.value} onChange={e => this.updateSeasons(e.target.value)} />
+              name="room" id="room" value={this.state.room.value} onChange={e => this.updateRoom(e.target.value)} />
             <label htmlFor="name">Description *</label>
             <input type="text" className="folder__control"
-              name="showdescription" id="showdescription" value={this.state.showdescription.value} onChange={e => this.updateDescription(e.target.value)} />
-            <label htmlFor="name">Language *</label>
-            <input type="text" className="folder__control"
-              name="showlanguage" id="showlanguage" value={this.state.showlanguage.value} onChange={e => this.updateLanguage(e.target.value)} />
+              name="showdescription" id="showdescription" value={this.state.teacher.value} onChange={e => this.updateTeacher(e.target.value)} />
+          
+           <input type="checkbox"  id="Sun" value={Sun} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Sun"> Sun</label><br></br>
+           <input type="checkbox"  id="Mon" value={Mon} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Mon"> Mon</label><br></br>
+           <input type="checkbox"  id="Tues" value={Tues} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Tues"> Tues</label><br></br>
+           <input type="checkbox"  id="Wed" value={Wed} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Wed"> Wed</label><br></br>
+           <input type="checkbox"  id="Thurs" value={Thurs} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Thurs"> Thurs</label><br></br>
+           <input type="checkbox"  id="Fri" value={Fri} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Fri"> Thurs</label><br></br>
+           <input type="checkbox"  id="Sat" value={Sat} defaultChecked={props.checked} ref={props.key} onChange={this.updateDay(e.target.value)} />
+           <label for="Sat"> Thurs</label><br></br>
           </div>
           <div className="addShow__button__group">
 
