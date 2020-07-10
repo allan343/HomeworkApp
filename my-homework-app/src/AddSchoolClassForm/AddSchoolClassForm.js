@@ -100,6 +100,13 @@ class AddSchoolClassForm extends React.Component {
     this.setState({ dayofweek:  days});
   }
 
+  updateStartDate(date) {
+    this.setState({ startdate: date });
+  }
+
+  updateFinishDate(date) {
+    this.setState({ finishdate: date });
+  }
 
   render() {
 
@@ -125,7 +132,7 @@ class AddSchoolClassForm extends React.Component {
             this.props.history.push(`/WatchingLog/${newid}`);
           });*/
         }}>
-          <h2 className="classDetailsHeading"> Show Details</h2>
+          <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
             Back
         </button>
@@ -134,6 +141,11 @@ class AddSchoolClassForm extends React.Component {
             <label htmlFor="classname">Name *</label>
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.classname.value} onChange={e => this.updateName(e.target.value)} />
+            <label for="startdate">Start Date</label>
+            <input type="date" id="startdate" name="startdate" onChange={e => this.updateStartDate(e.target.value)} ></input>
+            <label for="finishdate">Finish Date</label>
+            <input type="date" id="finishdate" name="finishdate" onChange={e => this.updateFinishDate(e.target.value)}></input>
+          
             <label htmlFor="name">Genre *</label>
             <input type="text" className="folder__control"
               name="building" id="building" value={this.state.building.value} onChange={e => this.updateBuilding(e.target.value)} />
