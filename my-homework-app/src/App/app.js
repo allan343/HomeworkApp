@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import AddSchoolClassForm from '../AddSchoolClassForm/AddSchoolClassForm';
+import Home from '../Home/Home';
+import Calender from '../Calender/Calender';
+import Homework from '../Homework/Homework';
+
 
 
 class App extends Component {
@@ -32,6 +37,11 @@ class App extends Component {
                     component={Homework}
                 />
 
+                <Route exact path="/add-class" render={
+                    (routeProps) => {
+                        return <AddSchoolClassForm {...routeProps}>
+                        </AddSchoolClassForm>
+                    }} />
               
 
             </>

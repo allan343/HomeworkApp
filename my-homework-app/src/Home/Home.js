@@ -14,7 +14,11 @@ export default class Home extends React.Component {
       <span className='NoteListMain__button-container'>
        
        <HeaderNav></HeaderNav>
-
+       <NavLink className="addClassPath"
+            to={`/add-class`}
+          >
+            +
+            </NavLink>
        <SchoolClassList name={'towatch'} shows={this.context.shows.filter(show => show.towatch)} history={this.props.history}>
         
         </SchoolClassList>
