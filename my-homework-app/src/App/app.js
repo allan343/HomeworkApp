@@ -10,8 +10,9 @@ import Homework from '../Homework/Homework';
 class App extends Component {
     state = {
         //array that holds all shows
-        shows: [],
+       
         schoolClasses: [],
+        homework: [],
         id:''
     };
     
@@ -48,11 +49,17 @@ class App extends Component {
         );
     }
 
-
+    renderMainRoutes() {
+    }
 
 
     render() {
-
+        const value = {
+            schoolclasses: this.state.schoolclasses,
+            homework: this.state.homework,
+            addShow: this.handleAddShow,
+           
+        };
         return (
            
            <ApiContext.Provider value={value}>
