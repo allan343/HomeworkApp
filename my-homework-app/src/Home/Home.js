@@ -19,7 +19,7 @@ export default class Home extends React.Component {
           >
             +
             </NavLink>
-       <SchoolClassList name={'towatch'} shows={this.context.shows.filter(show => show.towatch)} history={this.props.history}>
+       <SchoolClassList name={'towatch'} class={this.context.class} history={this.props.history}>
         
         </SchoolClassList>
       
