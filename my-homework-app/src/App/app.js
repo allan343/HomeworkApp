@@ -17,7 +17,7 @@ export default class App extends Component {
         id:''
     };
 
-    handleAddShow = (classObject) => {
+    handleAddSchoolClass = (classObject) => {
  
    
                      this.state.schoolClasses.push(classObject);
@@ -84,7 +84,7 @@ export default class App extends Component {
                     <div >{this.renderNavRoutes()}</div>
                   <div >{this.renderMainRoutes()}</div>
                 </div>
-            //</ApiContext.Provider>
+            </ApiContext.Provider>
         );
     }
 }
