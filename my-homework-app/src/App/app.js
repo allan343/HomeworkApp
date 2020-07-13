@@ -20,7 +20,11 @@ export default class App extends Component {
     handleAddShow = (classObject) => {
  
    
-                     this.state.shows.push(classObject);
+                     this.state.schoolClasses.push(classObject);
+                     this.setState({
+                        schoolClasses: this.state.schoolClasses;
+                    });
+
                     
            
      };
