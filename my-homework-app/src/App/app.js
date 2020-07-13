@@ -16,7 +16,16 @@ export default class App extends Component {
         homework: [],
         id:''
     };
-    
+
+    handleAddShow = (classObject) => {
+ 
+   
+                     this.state.shows.push(classObject);
+                    
+           
+     };
+
+
     renderNavRoutes() {
 
         return (
@@ -58,7 +67,7 @@ export default class App extends Component {
         const value = {
             schoolclasses: this.state.schoolclasses,
             homework: this.state.homework,
-            addShow: this.handleAddShow,
+            addSchoolClass: this.handleAddSchoolClass,
            
         };
         return (

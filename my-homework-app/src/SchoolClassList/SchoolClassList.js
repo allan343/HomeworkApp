@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-//import './FilterableList.css';
-import SchoolClass from '../SchoolClass/SchoolClass';
+import SchoolClassItem from '../SchoolClassItem/SchoolClassItem';
+
 
 class SchoolClassList extends Component {
+  static defaultProps = {
+    schoolclasses: []
+  };
+
   render() {
-    const list = this.props.files
-        .map((file, key) => <SchoolClass {...file} key={key} />);
+    const { schoolclasses } = this.props
     return (
-      <div className="SchoolClastList">
-        {list}
-      </div>
+      <section className='SchoolClassList'>
+     
+        <ul className='BookmarkList__list' aria-live='polite'>
+          {schoolclasses.map(schoolclass =>
+            <li><SchoolClassItem
+              key={schoolclass.id}
+              {...schoolclass}
+            />
+            </li>
+          )}
+        </ul>
+      </section>
     );
   }
 }
-
-
 
 export default SchoolClassList;
