@@ -3,6 +3,7 @@ import ApiContext from '../ApiContext/ApiContext';
 //import './ShowDetails.css';
 
 class AddSchoolClassForm extends React.Component {
+  static contextType = ApiContext;
  // static contextType = ApiContext;
   // component that allows user
   // to fill in show details
@@ -131,7 +132,7 @@ class AddSchoolClassForm extends React.Component {
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-        *this.context.addShow(schoolClass );
+        this.context.addSchoolClass(schoolClass);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
