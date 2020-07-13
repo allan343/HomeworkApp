@@ -1,6 +1,6 @@
 import React from 'react';
-
-//import ShowListNav from '../ShowListNav/ShowListNav';
+import { NavLink, Link } from 'react-router-dom';
+import ShowClassList from '../SchoolClassList/SchoolClassList';
 import ApiContext from '../ApiContext/ApiContext';
 import HeaderNav from '../HeaderNav/HeaderNav';
 
@@ -19,9 +19,8 @@ export default class Home extends React.Component {
           >
             +
             </NavLink>
-       <SchoolClassList name={'towatch'} class={this.context.class} history={this.props.history}>
-        
-        </SchoolClassList>
+            Hello
+    
       
       </span>
     )

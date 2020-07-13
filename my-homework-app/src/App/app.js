@@ -4,10 +4,11 @@ import AddSchoolClassForm from '../AddSchoolClassForm/AddSchoolClassForm';
 import Home from '../Home/Home';
 import Calender from '../Calender/Calender';
 import Homework from '../Homework/Homework';
+import ApiContext from '../ApiContext/ApiContext';
 
 
 
-class App extends Component {
+export default class App extends Component {
     state = {
         //array that holds all shows
        

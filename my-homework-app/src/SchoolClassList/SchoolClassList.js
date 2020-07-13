@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 //import './FilterableList.css';
-import ListItem from '../ListItem/ListItem';
+import SchoolClass from '../SchoolClass/SchoolClass';
 
 class SchoolClassList extends Component {
   render() {
     const list = this.props.files
-        .map((file, key) => <ListItem {...file} key={key} />);
+        .map((file, key) => <SchoolClass {...file} key={key} />);
     return (
       <div className="SchoolClastList">
         {list}
@@ -14,8 +14,6 @@ class SchoolClassList extends Component {
   }
 }
 
-FilterableList.defaultProps = {
-  files: []
-};
+
 
 export default SchoolClassList;

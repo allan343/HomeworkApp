@@ -2,7 +2,7 @@ import React from 'react';
 
 //import ShowListNav from '../ShowListNav/ShowListNav';
 //import ApiContext from '../ApiContext/ApiContext';
-import HeaderrNav from '../HeaderNav/HeaderNav';
+import HeaderNav from '../HeaderNav/HeaderNav';
 
 export default class Home extends React.Component {
  // static contextType = ApiContext;
