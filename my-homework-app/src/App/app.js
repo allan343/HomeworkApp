@@ -22,7 +22,7 @@ export default class App extends Component {
    
                      this.state.schoolClasses.push(classObject);
                      this.setState({
-                        schoolClasses: this.state.schoolClasses;
+                        schoolClasses: this.state.schoolClasses
                     });
 
                     
