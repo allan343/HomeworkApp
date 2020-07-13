@@ -1,5 +1,5 @@
 import React from 'react';
-//import ApiContext from '../ApiContext/ApiContext';
+import ApiContext from '../ApiContext/ApiContext';
 //import './ShowDetails.css';
 
 class AddSchoolClassForm extends React.Component {
@@ -77,6 +77,10 @@ class AddSchoolClassForm extends React.Component {
     this.setState({ classname: { value: classname, touched: true } });
   }
 
+  updateBuilding(building) {
+    this.setState({ building: { value: building, touched: true } });
+  }
+
   updateRoom(room) {
     this.setState({ room: { value: room, touched: true } });
   }
@@ -115,11 +119,11 @@ class AddSchoolClassForm extends React.Component {
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
           let schoolClass = {
-            classname: this.state.showname.value,
+            classname: this.state.classname.value,
             finishdate: this.state.finishdate,
             startdate: this.state.startdate,
-            building: this.state.genre.building,
-            teacher: this.state.seasons.teacher
+            building: this.state.building,
+            teacher: this.state.teacher
            
           }
           //we needed a callback function for 
@@ -127,10 +131,7 @@ class AddSchoolClassForm extends React.Component {
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-         /*this.context.addShow(show, (newid) => {
-            this.setState({ id: newid });
-            this.props.history.push(`/WatchingLog/${newid}`);
-          });*/
+        *this.context.addShow(schoolClass );
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
@@ -140,16 +141,16 @@ class AddSchoolClassForm extends React.Component {
           <div className="form-group">
             <label htmlFor="classname">Name *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.classname.value} onChange={e => this.updateName(e.target.value)} />
+              name="classname" id="classname" value={this.state.classname.value} onChange={e => this.updateClassName(e.target.value)} />
             <label for="startdate">Start Date</label>
             <input type="date" id="startdate" name="startdate" onChange={e => this.updateStartDate(e.target.value)} ></input>
             <label for="finishdate">Finish Date</label>
             <input type="date" id="finishdate" name="finishdate" onChange={e => this.updateFinishDate(e.target.value)}></input>
           
-            <label htmlFor="name">Genre *</label>
+            <label htmlFor="name">Building*</label>
             <input type="text" className="folder__control"
               name="building" id="building" value={this.state.building.value} onChange={e => this.updateBuilding(e.target.value)} />
-            <label htmlFor="name">Number Of Seasons *</label>
+            <label htmlFor="name">Room *</label>
             <input type="number" min="1" max="99" className="seasons"
               name="room" id="room" value={this.state.room.value} onChange={e => this.updateRoom(e.target.value)} />
             <label htmlFor="name">Description *</label>
@@ -173,7 +174,7 @@ class AddSchoolClassForm extends React.Component {
           </div>
           <div className="addShow__button__group">
 
-            <button type="submit" className="saveShowButton" >
+            <button type="submit" className="saveShowButton" onClick={this.context.a}>
               Save
         </button>
           </div>
