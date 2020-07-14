@@ -9,13 +9,13 @@ class AddSchoolClassForm extends React.Component {
   // to fill in show details
   static defaultProps = {
     id: '',
-    classname: '',
-    finishdate: '',
-    startdate: '',
+    className: '',
+    finishDate: '',
+    startDate: '',
     building: '',
     room: '',
     teacher: '',
-    dayofweek:{
+    dayOfWeek:{
     Sun: false,
             Mon: false,
             Tue: false,
@@ -33,12 +33,12 @@ class AddSchoolClassForm extends React.Component {
     super(props);
     this.state = {
       id: '',
-      classname: {
+      className: {
         value: '',
         touched: false
       },
-      finishdate: "",
-      startdate: "",
+      finishDate: "",
+      startDate: "",
       building: {
         value: '',
         touched: false
@@ -63,6 +63,14 @@ class AddSchoolClassForm extends React.Component {
         room: {
             value: '',
             touched: false
+          },
+          startTime: {
+            value: '',
+            touched: false
+          },
+          endTime: {
+            value: '',
+            touched: false
           }
        
 
@@ -74,9 +82,9 @@ class AddSchoolClassForm extends React.Component {
     this.props.history.push(`/`);
   }
 
-  updateClassName(classname) {
-    console.log("classname is " + classname);
-    this.setState({ classname: { value: classname, touched: true } });
+  updateClassName(className) {
+    console.log("classname is " + className);
+    this.setState({ className: { value: className, touched: true } });
     console.log("state classname "+ this.state.className);
   }
 
@@ -85,34 +93,43 @@ class AddSchoolClassForm extends React.Component {
   }
 
   updateRoom(room) {
+    console.log("update room");
     this.setState({ room: { value: room, touched: true } });
   }
-
-  updateStartDate(startdate) {
-    this.setState({ startdate: { value: startdate, touched: true } });
+/*
+  updateStartDate(startDate) {
+    this.setState({ startDate: { value: startDate, touched: true } });
   }
 
-  updateEndDate(enddate) {
-    this.setState({ enddate: { value: enddate, touched: true } });
+  updateEndDate(endDate) {
+    this.setState({ endDate: { value: endDate, touched: true } });
   }
-
+*/
   updateTeacher(teacher) {
     this.setState({ teacher: { value: teacher, touched: true } });
   }
 
-  updateDay(dayofweek) {
-    let days={...this.state.dayofweek};
-    let checked=!this.state.dayofweek[dayofweek];
-    days[dayofweek] = checked;
-    this.setState({ dayofweek:  days});
+  updateDay(dayOfWeek) {
+    let days={...this.state.dayOfWeek};
+    let checked=!this.state.dayOfWeek[dayOfWeek];
+    days[dayOfWeek] = checked;
+    this.setState({ dayOfWeek:  days});
   }
 
   updateStartDate(date) {
-    this.setState({ startdate: date });
+    this.setState({ startDate: date });
   }
 
   updateFinishDate(date) {
-    this.setState({ finishdate: date });
+    this.setState({ finishDate: date });
+  }
+
+  updateStartTime(time) {
+    this.setState({ startTime: { value: time, touched: true } });
+  }
+
+  updateEndTime(time) {
+    this.setState({ endTime: { value: time, touched: true } });
   }
 
   render() {
@@ -122,11 +139,13 @@ class AddSchoolClassForm extends React.Component {
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
           let schoolClass = {
-            classname: this.state.classname.value,
-            finishdate: this.state.finishdate,
-            startdate: this.state.startdate,
+            className: this.state.className.value,
+            finishDate: this.state.finishDate,
+            startDate: this.state.startDate,
             building: this.state.building.value,
-            teacher: this.state.teacher.value
+            teacher: this.state.teacher.value,
+            startTime:this.state.startTime.value,
+            endTime: this.state.endTime.value
            
           }
 
@@ -146,19 +165,19 @@ class AddSchoolClassForm extends React.Component {
           <div className="form-group">
             <label htmlFor="classname">Name *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.classname.value} onChange={e => this.updateClassName(e.target.value)} />
-            <label for="startdate">Start Date</label>
-            <input type="date" id="startdate" name="startdate" onChange={e => this.updateStartDate(e.target.value)} ></input>
-            <label for="finishdate">Finish Date</label>
-            <input type="date" id="finishdate" name="finishdate" onChange={e => this.updateFinishDate(e.target.value)}></input>
+              name="classname" id="classname" value={this.state.className.value} onChange={e => this.updateClassName(e.target.value)} />
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" name="startDate" onChange={e => this.updateStartDate(e.target.value)} ></input>
+            <label for="finishDate">Finish Date</label>
+            <input type="date" id="finishDate" name="finishDate" onChange={e => this.updateFinishDate(e.target.value)}></input>
           
             <label htmlFor="name">Building*</label>
             <input type="text" className="folder__control"
               name="building" id="building" value={this.state.building.value} onChange={e => this.updateBuilding(e.target.value)} />
             <label htmlFor="name">Room *</label>
-            <input type="number" min="1" max="99" className="seasons"
+            <input type="text"  className="room"
               name="room" id="room" value={this.state.room.value} onChange={e => this.updateRoom(e.target.value)} />
-            <label htmlFor="name">Description *</label>
+            <label htmlFor="name">Teacher *</label>
             <input type="text" className="folder__control"
               name="showdescription" id="showdescription" value={this.state.teacher.value} onChange={e => this.updateTeacher(e.target.value)} />
           
@@ -173,9 +192,15 @@ class AddSchoolClassForm extends React.Component {
            <input type="checkbox"  id="Thurs" value={'Thurs'} onChange={e=>this.updateDay(e.target.value)} />
            <label for="Thurs"> Thurs</label><br></br>
            <input type="checkbox"  id="Fri" value={'Fri'} onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Fri"> Thurs</label><br></br>
+           <label for="Fri"> Fri</label><br></br>
            <input type="checkbox"  id="Sat" value={'Sat'}  onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Sat"> Thurs</label><br></br>
+           <label for="Sat"> Sat</label><br></br>
+           <label htmlFor="name">Start Time e.g. 8:30 or 2:15 pm *</label>
+           <input type="text" className="folder__control"
+              name="startTime" id="startTime" value={this.state.startTime.value} onChange={e => this.updateStartTime(e.target.value)} />
+             <label htmlFor="name">End Time e.g. 8:30 or 2:15 pm *</label>
+             <input type="text" className="folder__control"
+              name="endTime" id="endTime" value={this.state.endTime.value} onChange={e => this.updateEndTime(e.target.value)} />
           </div>
           <div className="addShow__button__group">
 
