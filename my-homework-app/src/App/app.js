@@ -18,11 +18,13 @@ export default class App extends Component {
     };
 
     handleAddSchoolClass = (classObject) => {
- 
+                console.log(classObject);
+             
    
-                     this.state.schoolClasses.push(classObject);
+                    // this.state.schoolClasses.push(classObject);
+                    const newArr= [...this.state.schoolClasses, classObject];
                      this.setState({
-                        schoolClasses: this.state.schoolClasses
+                        schoolClasses: newArr
                     });
 
                     

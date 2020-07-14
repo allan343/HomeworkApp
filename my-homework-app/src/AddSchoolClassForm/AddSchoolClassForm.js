@@ -75,7 +75,9 @@ class AddSchoolClassForm extends React.Component {
   }
 
   updateClassName(classname) {
+    console.log("classname is " + classname);
     this.setState({ classname: { value: classname, touched: true } });
+    console.log("state classname "+ this.state.className);
   }
 
   updateBuilding(building) {
@@ -123,10 +125,12 @@ class AddSchoolClassForm extends React.Component {
             classname: this.state.classname.value,
             finishdate: this.state.finishdate,
             startdate: this.state.startdate,
-            building: this.state.building,
-            teacher: this.state.teacher
+            building: this.state.building.value,
+            teacher: this.state.teacher.value
            
           }
+
+          console.log("object classname"+schoolClass);
           //we needed a callback function for 
           // add show
           // in app.js add show does a call/promise to backend
