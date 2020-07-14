@@ -156,6 +156,7 @@ class AddSchoolClassForm extends React.Component {
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
         this.context.addSchoolClass(schoolClass);
+        this.props.history.push(`/`);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
