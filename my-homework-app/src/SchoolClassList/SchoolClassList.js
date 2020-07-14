@@ -9,14 +9,16 @@ class SchoolClassList extends Component {
 
   render() {
     const { schoolClasses } = this.props
+    console.log(schoolClasses);
     return (
       <section className='SchoolClassList'>
      
         <ul className='BookmarkList__list' aria-live='polite'>
           {schoolClasses.map(schoolClass =>
+  
             <li><SchoolClassItem
               key={schoolClass.id}
-              {...schoolClass}
+             {...schoolClass}
             />
             </li>
           )}
