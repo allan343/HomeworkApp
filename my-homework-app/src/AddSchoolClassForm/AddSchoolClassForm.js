@@ -96,15 +96,7 @@ class AddSchoolClassForm extends React.Component {
     console.log("update room");
     this.setState({ room: { value: room, touched: true } });
   }
-/*
-  updateStartDate(startDate) {
-    this.setState({ startDate: { value: startDate, touched: true } });
-  }
 
-  updateEndDate(endDate) {
-    this.setState({ endDate: { value: endDate, touched: true } });
-  }
-*/
   updateTeacher(teacher) {
     this.setState({ teacher: { value: teacher, touched: true } });
   }
@@ -143,6 +135,7 @@ class AddSchoolClassForm extends React.Component {
             finishDate: this.state.finishDate,
             startDate: this.state.startDate,
             building: this.state.building.value,
+            room: this.state.room.value,
             teacher: this.state.teacher.value,
             startTime:this.state.startTime.value,
             endTime: this.state.endTime.value
