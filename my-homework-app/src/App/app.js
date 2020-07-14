@@ -71,7 +71,7 @@ export default class App extends Component {
 
     render() {
         const value = {
-            schoolclasses: this.state.schoolclasses,
+            schoolClasses: this.state.schoolClasses,
             homework: this.state.homework,
             addSchoolClass: this.handleAddSchoolClass,
            

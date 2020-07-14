@@ -21,7 +21,7 @@ export default class Home extends React.Component {
             +
             </NavLink>
             Hello
-    <SchoolClassList schoolclasses={this.context.schoolclasses}></SchoolClassList>
+    <SchoolClassList schoolClasses={this.context.schoolClasses}></SchoolClassList>
       
       </span>
     )

@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createContext({
   //context methods
 
-  schoolclasses: [],
+  schoolClasses: [],
   homework: [],
   addSchoolClass: () => { },
 

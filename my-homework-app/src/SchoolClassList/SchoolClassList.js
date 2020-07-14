@@ -8,15 +8,15 @@ class SchoolClassList extends Component {
   };
 
   render() {
-    const { schoolclasses } = this.props
+    const { schoolClasses } = this.props
     return (
       <section className='SchoolClassList'>
      
         <ul className='BookmarkList__list' aria-live='polite'>
-          {schoolclasses.map(schoolclass =>
+          {schoolClasses.map(schoolClass =>
             <li><SchoolClassItem
-              key={schoolclass.id}
-              {...schoolclass}
+              key={schoolClass.id}
+              {...schoolClass}
             />
             </li>
           )}
