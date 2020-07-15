@@ -27,7 +27,7 @@ class App extends Component {
      };
 
      handleGetClass = (id) => {
-        return this.state.schoolClassess.find(
+        return this.state.schoolClasses.find(
             function (schoolClass) {
             return schoolClass.classId == id;
         });

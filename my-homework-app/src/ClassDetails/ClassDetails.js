@@ -1,19 +1,27 @@
 import React from 'react';
+import ApiContext from '../ApiContext/ApiContext';
 
 
 
-export default function ClassDetails(props) {
-
- 
-  return (
+export default class ClassDetails extends React.Component {
+    static contextType = ApiContext;
+    constructor(props) {
+        super(props);
+    }
   
+  render() {
+    console.log(this. props.classId);
+  let schoolClass = this.context.getClass(this.props.classId);
+  console.log(schoolClass.className);
+  return (
+
       <div className='SchoolClassItem__row'>
-    { <h3> {props.className}</h3>}
-  { <h3> Started {props.startDate}</h3>}
-  { <h3> Ends {props.endDate}</h3>}
-    { <h3> Location {props.building}</h3>}  
-    { <h3> Teacher {props.tuilding}</h3>}  
-    { <h3> ClassTimes {props.tuilding}</h3>}  
+    { <h3> {schoolClass.className}</h3>}
+  { <h3> Started {schoolClass.startDate}</h3>}
+  { <h3> Ends {schoolClass.endDate}</h3>}
+    { <h3> Location {schoolClass.building}</h3>}  
+    { <h3> Teacher {schoolClass.teacher}</h3>}  
+    { <h3> ClassTimes {schoolClass.startTime}</h3>}  
     
 
      
@@ -22,5 +30,6 @@ export default function ClassDetails(props) {
    
     
   )
+  }
 }
 
