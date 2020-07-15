@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from '../ApiContext/ApiContext';
+import { NavLink, Link } from 'react-router-dom';
 
 
 
@@ -9,13 +10,25 @@ export default class ClassDetails extends React.Component {
         super(props);
     }
   
+    cancelHandle = (e) => {
+        e.preventDefault();
+        this.props.history.goBack();
+      }
+    
+
   render() {
     console.log(this. props.classId);
   let schoolClass = this.context.getClass(this.props.classId);
   console.log(schoolClass.className);
   return (
 
+
+
       <div className='SchoolClassItem__row'>
+
+<button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
+            Back
+        </button>
     { <h3> {schoolClass.className}</h3>}
   { <h3> Started {schoolClass.startDate}</h3>}
   { <h3> Ends {schoolClass.endDate}</h3>}
@@ -23,7 +36,11 @@ export default class ClassDetails extends React.Component {
     { <h3> Teacher {schoolClass.teacher}</h3>}  
     { <h3> ClassTimes {schoolClass.startTime}</h3>}  
     
-
+    <NavLink className="addClassPath"
+            to={`/edit-class`}
+          >
+            Edit
+            </NavLink>
      
       </div>
     

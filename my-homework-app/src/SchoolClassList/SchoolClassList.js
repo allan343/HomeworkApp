@@ -32,7 +32,7 @@ class SchoolClassList extends Component {
     return (
       <section className='SchoolClassList'>
      
-     {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} history={this.props.history} hideshow={()=>{}} /> :  <ul className='SchoolClassList__list' aria-live='polite'>
+     {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} hideshow={()=>{}} /> :  <ul className='SchoolClassList__list' aria-live='polite'>
           {schoolClasses.map(schoolClass =>
   
             <li id="class" onClick={() => this.classClicked(schoolClass.classId)}> 

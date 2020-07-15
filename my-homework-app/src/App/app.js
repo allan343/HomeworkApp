@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import AddSchoolClassForm from '../AddSchoolClassForm/AddSchoolClassForm';
+import EditSchoolClassForm from '../EditSchoolClassForm/EditSchoolClassForm';
 import Home from '../Home/Home';
 import Calender from '../Calender/Calender';
 import Homework from '../Homework/Homework';
@@ -74,6 +75,11 @@ class App extends Component {
                         </AddSchoolClassForm>
                     }} />
               
+              <Route exact path="/edit-class" render={
+                    (routeProps) => {
+                        return <EditSchoolClassForm {...routeProps}>
+                        </EditSchoolClassForm>
+                    }} />
 
             </>
         );
