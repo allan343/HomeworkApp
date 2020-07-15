@@ -14,24 +14,34 @@ export default class App extends Component {
        
         schoolClasses: [],
         homework: [],
-        id:''
+        classId:''
     };
 
     handleAddSchoolClass = (classObject) => {
                 console.log(classObject);
-             
-   
                     // this.state.schoolClasses.push(classObject);
                     const newArr= [...this.state.schoolClasses, classObject];
                      this.setState({
                         schoolClasses: newArr
-                    });
-
-                    
-           
+                    });  
      };
 
+     handleGetClass = (id) => {
+        return this.state.schoolClassess.find(
+            function (schoolClass) {
+            return schoolClass.classId == id;
+        });
+    };
 
+    setClassId= (id) => {
+        this.setState({
+            classId: id
+        });
+    };
+
+    getClassId= () => {
+        return this.state.classId;
+    };
     renderNavRoutes() {
 
         return (
