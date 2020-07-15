@@ -10,9 +10,10 @@ export default class ClassDetails extends React.Component {
         super(props);
     }
   
-    cancelHandle = (e) => {
-        e.preventDefault();
-        this.props.history.goBack();
+    cancelHandle() {
+        //e.preventDefault();
+       // this.props.history.goBack();
+       this.props.closeClass();
       }
     
 
@@ -26,7 +27,7 @@ export default class ClassDetails extends React.Component {
 
       <div className='SchoolClassItem__row'>
 
-<button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
+<button type="cancel" className="cancelShowButton" onClick={this.props.hideClass}>
             Back
         </button>
     { <h3> {schoolClass.className}</h3>}

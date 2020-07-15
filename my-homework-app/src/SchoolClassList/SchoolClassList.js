@@ -25,6 +25,12 @@ class SchoolClassList extends Component {
   console.log("h1!"+ this.context.getClassId());
   }
 
+  closeClass(classId) {
+ 
+    this.setState({  clicked: false });
+   
+  }
+
 
   render() {
     const { schoolClasses } = this.props
@@ -32,7 +38,7 @@ class SchoolClassList extends Component {
     return (
       <section className='SchoolClassList'>
      
-     {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} hideshow={()=>{}} /> :  <ul className='SchoolClassList__list' aria-live='polite'>
+     {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} hideClass={()=>{this.setState({clicked:false})}} /> :  <ul className='SchoolClassList__list' aria-live='polite'>
           {schoolClasses.map(schoolClass =>
   
             <li id="class" onClick={() => this.classClicked(schoolClass.classId)}> 
