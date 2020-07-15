@@ -2,7 +2,7 @@ import React from 'react';
 import ApiContext from '../ApiContext/ApiContext';
 //import './ShowDetails.css';
 
-class AddSchoolClassForm extends React.Component {
+class EditSchoolClassForm extends React.Component {
   static contextType = ApiContext;
  // static contextType = ApiContext;
   // component that allows user
@@ -131,7 +131,6 @@ class AddSchoolClassForm extends React.Component {
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
           let schoolClass = {
-            classId: Math.random(),
             className: this.state.className.value,
             finishDate: this.state.finishDate,
             startDate: this.state.startDate,
@@ -202,6 +201,9 @@ class AddSchoolClassForm extends React.Component {
             <button type="submit" className="saveShowButton" onClick={this.context.a}>
               Save
         </button>
+        <button type="reset" className="delShowButton" onClick={this.deleteHandle}>
+                Delete
+        </button>
           </div>
         </form>
       </div>
@@ -209,4 +211,4 @@ class AddSchoolClassForm extends React.Component {
   }
 }
 
-export default AddSchoolClassForm ;
+export default EditSchoolClassForm ;

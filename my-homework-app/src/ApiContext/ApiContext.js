@@ -6,5 +6,9 @@ export default React.createContext({
   schoolClasses: [],
   homework: [],
   addSchoolClass: () => { },
-
+  deleteClass: () => { },
+  getClass: () => { },
+  updateClass: () => { },
+  getClassId: () => { },
+  setClassId: () => { },
 })

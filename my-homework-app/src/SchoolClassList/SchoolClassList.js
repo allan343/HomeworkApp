@@ -13,11 +13,11 @@ class SchoolClassList extends Component {
     return (
       <section className='SchoolClassList'>
      
-        <ul className='BookmarkList__list' aria-live='polite'>
+        <ul className='SchoolClassList__list' aria-live='polite'>
           {schoolClasses.map(schoolClass =>
   
             <li><SchoolClassItem
-              key={schoolClass.id}
+              key={schoolClass.classId}
              {...schoolClass}
             />
             </li>
