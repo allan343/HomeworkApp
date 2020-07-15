@@ -8,7 +8,7 @@ import ApiContext from '../ApiContext/ApiContext';
 
 
 
-export default class App extends Component {
+class App extends Component {
     state = {
         //array that holds all shows
        
@@ -33,13 +33,17 @@ export default class App extends Component {
         });
     };
 
-    setClassId= (id) => {
+    setClassId = (classId) => {
+        //console.log("context id "+classId);
         this.setState({
-            classId: id
+            classId: classId
         });
+        //console.log("set id "+this.state.classId);
+     
     };
 
-    getClassId= () => {
+    getClassId = () => {
+        console.log("get id "+this.state.classId);
         return this.state.classId;
     };
     renderNavRoutes() {
@@ -84,6 +88,9 @@ export default class App extends Component {
             schoolClasses: this.state.schoolClasses,
             homework: this.state.homework,
             addSchoolClass: this.handleAddSchoolClass,
+            setClassId: this.setClassId,
+            getClassId: this.getClassId,
+            getClass: this.handleGetClass
            
         };
         return (
@@ -100,3 +107,5 @@ export default class App extends Component {
         );
     }
 }
+
+export default App;
