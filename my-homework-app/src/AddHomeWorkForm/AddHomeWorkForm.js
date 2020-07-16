@@ -83,7 +83,7 @@ class AddHomeworkForm extends React.Component {
            schoolClass: this.state.finishDate,
             type: this.state.startDate,
             dueDate: this.state.dueDate,
-            dueTime: this.state.DueTime.value,
+            dueTime: this.state.dueTime.value,
             priority: this.state.priority
            
           }
@@ -105,7 +105,7 @@ class AddHomeworkForm extends React.Component {
           <div className="form-group">
             <label htmlFor="homeworkDesc">Description *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateClassName(e.target.value)} />
+              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} />
            <label for="cars">Choose a car:</label>
 
             <select name="schoolClass" id="schoolClass">
