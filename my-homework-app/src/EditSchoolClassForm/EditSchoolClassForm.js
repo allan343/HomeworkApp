@@ -32,7 +32,7 @@ class EditSchoolClassForm extends React.Component {
     //states a show can have
     super(props);
     this.state = {
-      id: '',
+      classId: '',
       className: {
         value: '',
         touched: false
@@ -148,7 +148,7 @@ class EditSchoolClassForm extends React.Component {
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-        this.context.addSchoolClass(schoolClass);
+        this.context.updateClass(schoolClass,this.context.getClassId());
         this.props.history.push(`/`);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>

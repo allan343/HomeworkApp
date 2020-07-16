@@ -32,10 +32,11 @@ export default class ClassDetails extends React.Component {
         </button>
     { <h3> {schoolClass.className}</h3>}
   { <h3> Started {schoolClass.startDate}</h3>}
-  { <h3> Ends {schoolClass.endDate}</h3>}
+  { <h3> Ends {schoolClass.finishDate}</h3>}
     { <h3> Location {schoolClass.building}</h3>}  
     { <h3> Teacher {schoolClass.teacher}</h3>}  
-    { <h3> ClassTimes {schoolClass.startTime}</h3>}  
+    { <h3> Class Start Time {schoolClass.startTime}</h3>}  
+    { <h3> Class End Time {schoolClass.endTime}</h3>}  
     
     <NavLink className="addClassPath"
             to={`/edit-class`}

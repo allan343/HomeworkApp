@@ -18,6 +18,21 @@ class App extends Component {
         classId:''
     };
 
+    handleUpdateSchoolClass = (classObject, classId) => {
+
+  
+                    let schoolClass = this.state.schoolClasses.find(schoolClass => schoolClass.classId == classId);
+                    for (let key in schoolClass) {
+                        schoolClass[key] = classObject[key];
+                    }
+                    this.setState({
+                        schoolClasses: this.state.schoolClasses
+                    });
+                
+        
+    };
+
+
     handleAddSchoolClass = (classObject) => {
                 console.log(classObject);
                     // this.state.schoolClasses.push(classObject);
@@ -26,6 +41,15 @@ class App extends Component {
                         schoolClasses: newArr
                     });  
      };
+
+      //deletes a show from the backend
+    // deletes a show from the front end in the state array holding all shows
+    handleDeleteClass = classId => {
+                this.setState({
+                    schoolclasses: this.state.schoolClasses.filter(schoolClass => schoolClass.classId != classId)
+                });
+            
+    };
 
      handleGetClass = (id) => {
         return this.state.schoolClasses.find(
@@ -94,6 +118,8 @@ class App extends Component {
             schoolClasses: this.state.schoolClasses,
             homework: this.state.homework,
             addSchoolClass: this.handleAddSchoolClass,
+            deleteClass: this.handleDeleteClass,
+            updateClass: this.handleUpdateSchoolClass,
             setClassId: this.setClassId,
             getClassId: this.getClassId,
             getClass: this.handleGetClass
