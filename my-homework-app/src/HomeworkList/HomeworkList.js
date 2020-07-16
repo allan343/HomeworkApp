@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import SchoolClassItem from '../SchoolClassItem/SchoolClassItem';
-import ClassDetails from '../ClassDetails/ClassDetails';
+import HomeworkItem from '../HomeworkItem/HomeworkItem';
 import ApiContext from '../ApiContext/ApiContext';
 
 class HomeworkList extends Component {
@@ -38,17 +37,17 @@ class HomeworkList extends Component {
     return (
       <section className='SchoolClassList'>
      
-     {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} hideClass={()=>{this.setState({clicked:false})}} /> :  <ul className='SchoolClassList__list' aria-live='polite'>
-          {schoolClasses.map(schoolClass =>
+      <ul className='SchoolClassList__list' aria-live='polite'>
+          {/*schoolClasses.map(schoolClass =>
   
             <li id="class" onClick={() => this.classClicked(schoolClass.classId)}> 
-              <SchoolClassItem
+              <HomeworkItem
               key={schoolClass.classId}
              {...schoolClass}
               />
             </li>
-          )}
-        </ul>}
+          )*/}
+        </ul>
 
        
       </section>

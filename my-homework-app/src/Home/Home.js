@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import ShowClassList from '../SchoolClassList/SchoolClassList';
 import ApiContext from '../ApiContext/ApiContext';
 import HeaderNav from '../HeaderNav/HeaderNav';
 import SchoolClassList from '../SchoolClassList/SchoolClassList';
+import HomeworkList from '../HomeworkList/HomeworkList'
+
 
 export default class Home extends React.Component {
  static contextType = ApiContext;
@@ -27,7 +28,7 @@ export default class Home extends React.Component {
           >
           Homework  +
             </NavLink>
-
+            <HomeworkList homeworkList={""} ></HomeworkList>
 
       </span>
     )
