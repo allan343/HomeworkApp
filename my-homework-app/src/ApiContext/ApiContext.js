@@ -4,11 +4,18 @@ export default React.createContext({
   //context methods
 
   schoolClasses: [],
-  homework: [],
+  homeworkList: [],
   addSchoolClass: () => { },
   deleteClass: () => { },
   getClass: () => { },
   updateClass: () => { },
   getClassId: () => { },
   setClassId: () => { },
+
+  addHomework: () => { },
+  deleteHomework: () => { },
+  getHomework: () => { },
+  updateHomework: () => { },
+  getHomeworkId: () => { },
+  setHomeworkId: () => { },
 })

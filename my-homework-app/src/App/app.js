@@ -15,7 +15,7 @@ class App extends Component {
         //array that holds all shows
        
         schoolClasses: [],
-        homework: [],
+        homeworkList: [],
         classId:'',
         homeworkId:'',
     };
@@ -74,6 +74,122 @@ class App extends Component {
         console.log("get id "+this.state.classId);
         return this.state.classId;
     };
+
+
+    handleUpdateSchoolClass = (classObject, classId) => {
+
+  
+                    let schoolClass = this.state.schoolClasses.find(schoolClass => schoolClass.classId == classId);
+                    for (let key in schoolClass) {
+                        schoolClass[key] = classObject[key];
+                    }
+                    this.setState({
+                        schoolClasses: this.state.schoolClasses
+                    });
+                
+        
+    };
+
+
+    handleAddSchoolClass = (classObject) => {
+                console.log(classObject);
+                    // this.state.schoolClasses.push(classObject);
+                    const newArr= [...this.state.schoolClasses, classObject];
+                     this.setState({
+                        schoolClasses: newArr
+                    });  
+     };
+
+      //deletes a show from the backend
+    // deletes a show from the front end in the state array holding all shows
+    handleDeleteClass = classId => {
+        console.log(classId);
+                this.setState({
+                    schoolClasses: this.state.schoolClasses.filter(schoolClass => schoolClass.classId != classId)
+                });
+            
+    };
+
+     handleGetClass = (id) => {
+        return this.state.schoolClasses.find(
+            function (schoolClass) {
+            return schoolClass.classId == id;
+        });
+    };
+
+    setClassId = (classId) => {
+        //console.log("context id "+classId);
+        this.setState({
+            classId: classId
+        });
+        //console.log("set id "+this.state.classId);
+     
+    };
+
+    getClassId = () => {
+        console.log("get id "+this.state.classId);
+        return this.state.classId;
+    };
+
+
+    //homework methods
+    //
+    //
+    //
+
+    handleUpdateHomework = (homeworkObject, homeworkId) => {
+
+  
+        let homework = this.state.homeworkList.find(homework => homework.homeworkId == homeworkId);
+        for (let key in homework) {
+            homework[key] = homeworkObject[key];
+        }
+        this.setState({
+            homeworkList: this.state.homeworkList
+        });
+    
+
+};
+
+
+handleAddHomework = (homeworkObject) => {
+ 
+        const newArr= [...this.state.homeworkList, homeworkObject];
+         this.setState({
+           homeworkList: newArr
+        });  
+};
+
+//deletes a show from the backend
+// deletes a show from the front end in the state array holding all shows
+handleDeleteHomework = homeworkId => {
+    this.setState({
+        homeworkList: this.state.homeworkList.filter(homeworkClass => homeworkClass.homeworkId != homeworkId)
+    });
+
+};
+
+handleGetHomework = (id) => {
+return this.state.homeworkList.find(
+function (homework) {
+return homework.homeworkId == id;
+});
+};
+
+setHomeworkId = (homeworkId) => {
+
+this.setState({
+homeoworkId: homeworkId
+});
+
+
+};
+
+getHomeworkId = () => {
+
+return this.state.homeworkId;
+};
+
     renderNavRoutes() {
 
         return (
@@ -131,13 +247,21 @@ class App extends Component {
     render() {
         const value = {
             schoolClasses: this.state.schoolClasses,
-            homework: this.state.homework,
+            homeworkList: this.state.homeworkList,
             addSchoolClass: this.handleAddSchoolClass,
             deleteClass: this.handleDeleteClass,
             updateClass: this.handleUpdateSchoolClass,
             setClassId: this.setClassId,
             getClassId: this.getClassId,
-            getClass: this.handleGetClass
+            getClass: this.handleGetClass,
+            addHomework: this.handleAddHomework,
+            deleteHomework: this.handleDeleteHomework,
+            updateHomework: this.handleUpdateHomework,
+            setHomeworkId: this.setHomeworkId,
+            getHomeworkId: this.getHomeworkId,
+            getHomework: this.handleGetHomework
+
+
            
         };
         return (
