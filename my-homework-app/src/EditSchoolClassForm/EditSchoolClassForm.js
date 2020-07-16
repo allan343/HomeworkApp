@@ -32,23 +32,23 @@ class EditSchoolClassForm extends React.Component {
     //states a show can have
     super(props);
     this.state = {
-      classId: '',
+      classId: this.props.classId,
       className: {
-        value: '',
+        value: this.props.className,
         touched: false
       },
-      finishDate: "",
-      startDate: "",
+      finishDate: this.props.finishDate,
+      startDate: this.props.startDate,
       building: {
-        value: '',
+        value: this.props.building,
         touched: false
       },
       room: {
-        value: '',
+        value: this.props.room,
         touched: false
       },
       teacher: {
-        value: '',
+        value: this.props.teacher,
         touched: false
       },
       dayofweek:{
@@ -60,16 +60,12 @@ class EditSchoolClassForm extends React.Component {
                 Fri: false,
                 Sat: false,
         },
-        room: {
-            value: '',
-            touched: false
-          },
           startTime: {
-            value: '',
+            value: this.props.startTime,
             touched: false
           },
           endTime: {
-            value: '',
+            value: this.props.endTime,
             touched: false
           }
        

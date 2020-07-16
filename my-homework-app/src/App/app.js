@@ -106,6 +106,12 @@ class App extends Component {
                         </EditSchoolClassForm>
                     }} />
 
+            <Route exact path="/ClassDetails/Edit/:classId" render={
+                    (routeProps) => {
+                        return <EditSchoolClassForm {...this.handleGetClass(routeProps.match.params.classId)}  {...routeProps}>
+                        </EditSchoolClassForm>
+                    }} />
+
             </>
         );
     }
