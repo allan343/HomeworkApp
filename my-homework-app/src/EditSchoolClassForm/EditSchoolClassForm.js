@@ -76,6 +76,14 @@ class EditSchoolClassForm extends React.Component {
 
     };
   }
+
+  deleteHandle = (e) => {
+    e.preventDefault();
+    this.context.deleteClass(this.context.getClassId());
+  
+      this.props.history.push("/");
+    }
+  
   //methods to update show state from user input
   cancelHandle = (e) => {
     e.preventDefault();

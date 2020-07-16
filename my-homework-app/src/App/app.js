@@ -45,8 +45,9 @@ class App extends Component {
       //deletes a show from the backend
     // deletes a show from the front end in the state array holding all shows
     handleDeleteClass = classId => {
+        console.log(classId);
                 this.setState({
-                    schoolclasses: this.state.schoolClasses.filter(schoolClass => schoolClass.classId != classId)
+                    schoolClasses: this.state.schoolClasses.filter(schoolClass => schoolClass.classId != classId)
                 });
             
     };
