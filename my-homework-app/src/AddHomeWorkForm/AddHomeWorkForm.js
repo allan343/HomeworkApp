@@ -94,7 +94,7 @@ class AddHomeworkForm extends React.Component {
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-        this.context.addSchoolClass(homework);
+        this.context.addHomework(homework);
         this.props.history.push(`/`);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>

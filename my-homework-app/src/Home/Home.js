@@ -28,7 +28,7 @@ export default class Home extends React.Component {
           >
           Homework  +
             </NavLink>
-            <HomeworkList homeworkList={""} ></HomeworkList>
+            <HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
 
       </span>
     )

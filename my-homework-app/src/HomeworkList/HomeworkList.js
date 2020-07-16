@@ -32,21 +32,21 @@ class HomeworkList extends Component {
 
 
   render() {
-    const { schoolClasses } = this.props
-    console.log(schoolClasses);
+    const { homeworkList } = this.props
+    console.log(homeworkList);
     return (
       <section className='SchoolClassList'>
      
       <ul className='SchoolClassList__list' aria-live='polite'>
-          {/*schoolClasses.map(schoolClass =>
+          {homeworkList.map(homework =>
   
-            <li id="class" onClick={() => this.classClicked(schoolClass.classId)}> 
+            <li>
               <HomeworkItem
-              key={schoolClass.classId}
-             {...schoolClass}
-              />
+              key={homework.homeworkId}
+             {...homework}
+             />
             </li>
-          )*/}
+          )}
         </ul>
 
        

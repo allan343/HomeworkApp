@@ -8,7 +8,7 @@ export default function HomeworkItem(props) {
 
   return (
         <div className='HomeworkItem__row'>
-    { <h3> {props.Description}</h3>}
+    { <h3> {props.description}</h3>}
 
      
       </div>
