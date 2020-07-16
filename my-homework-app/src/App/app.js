@@ -5,6 +5,7 @@ import EditSchoolClassForm from '../EditSchoolClassForm/EditSchoolClassForm';
 import Home from '../Home/Home';
 import Calender from '../Calender/Calender';
 import Homework from '../Homework/Homework';
+import AddHomeworkForm from '../AddHomeworkForm/AddHomeworkForm';
 import ApiContext from '../ApiContext/ApiContext';
 
 
@@ -15,7 +16,8 @@ class App extends Component {
        
         schoolClasses: [],
         homework: [],
-        classId:''
+        classId:'',
+        homeworkId:'',
     };
 
     handleUpdateSchoolClass = (classObject, classId) => {
@@ -110,6 +112,12 @@ class App extends Component {
                     (routeProps) => {
                         return <EditSchoolClassForm {...this.handleGetClass(routeProps.match.params.classId)}  {...routeProps}>
                         </EditSchoolClassForm>
+                    }} />
+
+<Route exact path="/add-homework" render={
+                    (routeProps) => {
+                        return <AddHomeworkForm {...routeProps}>
+                        </AddHomeworkForm>
                     }} />
 
             </>

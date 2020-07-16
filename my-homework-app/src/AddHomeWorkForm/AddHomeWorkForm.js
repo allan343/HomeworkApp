@@ -2,7 +2,7 @@ import React from 'react';
 import ApiContext from '../ApiContext/ApiContext';
 //import './ShowDetails.css';
 
-class AddHomeWorkForm extends React.Component {
+class AddHomeworkForm extends React.Component {
   static contextType = ApiContext;
  // static contextType = ApiContext;
   // component that allows user
@@ -94,7 +94,7 @@ class AddHomeWorkForm extends React.Component {
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-        this.context.addSchoolClass(schoolClass);
+        this.context.addSchoolClass(homework);
         this.props.history.push(`/`);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
@@ -105,7 +105,7 @@ class AddHomeWorkForm extends React.Component {
           <div className="form-group">
             <label htmlFor="homeworkDesc">Description *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.className.value} onChange={e => this.updateClassName(e.target.value)} />
+              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateClassName(e.target.value)} />
            <label for="cars">Choose a car:</label>
 
             <select name="schoolClass" id="schoolClass">
@@ -133,7 +133,7 @@ class AddHomeWorkForm extends React.Component {
           
            <label htmlFor="name">Due Time e.g. 8:30 or 2:15 pm *</label>
            <input type="text" className="folder__control"
-              name="startTime" id="startTime" value={this.state.startTime.value} onChange={e => this.updateDueTime(e.target.value)} />
+              name="startTime" id="startTime" value={this.state.dueTime.value} onChange={e => this.updateDueTime(e.target.value)} />
           <select name="priority" id="priority">
             <option value="High">High</option>
             <option value="Medium">Medium</option>

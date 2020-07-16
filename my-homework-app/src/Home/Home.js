@@ -18,11 +18,17 @@ export default class Home extends React.Component {
        <NavLink className="addClassPath"
             to={`/add-class`}
           >
-            +
+          Classes  +
             </NavLink>
-            Hello
+           
     <SchoolClassList schoolClasses={this.context.schoolClasses} ></SchoolClassList>
-      
+    <NavLink className="addHomeWorkPath"
+            to={`/add-homework`}
+          >
+          Homework  +
+            </NavLink>
+
+
       </span>
     )
   }
