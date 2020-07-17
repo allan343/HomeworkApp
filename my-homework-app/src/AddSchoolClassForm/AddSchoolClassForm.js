@@ -51,7 +51,7 @@ class AddSchoolClassForm extends React.Component {
         value: '',
         touched: false
       },
-      dayofweek:{
+      dayOfWeek:{
         Sun: false,
                 Mon: false,
                 Tue: false,
@@ -102,6 +102,8 @@ class AddSchoolClassForm extends React.Component {
   }
 
   updateDay(dayOfWeek) {
+    console.log(dayOfWeek);
+    console.log(this.state)
     let days={...this.state.dayOfWeek};
     let checked=!this.state.dayOfWeek[dayOfWeek];
     days[dayOfWeek] = checked;

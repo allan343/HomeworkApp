@@ -72,7 +72,7 @@ class AddHomeworkForm extends React.Component {
   
 
   render() {
-
+    let classList=  this.context.schoolClasses;
     return (
       <div id="show-details">
         <form className="folder" onSubmit={(event) => {
@@ -87,14 +87,9 @@ class AddHomeworkForm extends React.Component {
             priority: this.state.priority
            
           }
-
-     
-          //we needed a callback function for 
-          // add show
-          // in app.js add show does a call/promise to backend
-          // can happen asyncronously
-          // callback function ensures we have newid from add show context method
+    
         this.context.addHomework(homework);
+      
         this.props.history.push(`/`);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
@@ -106,14 +101,32 @@ class AddHomeworkForm extends React.Component {
             <label htmlFor="homeworkDesc">Description *</label>
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} />
-           <label for="cars">Choose a car:</label>
-
+           <label for="cars">Choose class:</label>
+           <select name="schoolClass" id="schoolClass">
+          
+           {
+           
+           classList.map(schoolClass => 
+             
+           <option value={schoolClass.className}>{schoolClass.className}</option>
+            )
+           }
+         </select>
+        
+           {/*
             <select name="schoolClass" id="schoolClass">
             <option value="Physics">Physics</option>
             <option value="Chemistry">Chemistry</option>
             <option value="Math">Math</option>
             <option value="English">English</option>
-            </select>
+             </select>
+
+           */}
+          
+
+
+
+
             <select name="classType" id="classType">
             <option value="Homework">Homework</option>
             <option value="Test">Test</option>

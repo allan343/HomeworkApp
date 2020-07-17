@@ -129,7 +129,7 @@ class EditSchoolClassForm extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.startDate);
     return (
       <div id="show-details">
         <form className="folder" onSubmit={(event) => {
@@ -165,9 +165,9 @@ class EditSchoolClassForm extends React.Component {
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.className.value} onChange={e => this.updateClassName(e.target.value)} />
             <label for="startDate">Start Date</label>
-            <input type="date" id="startDate" name="startDate" onChange={e => this.updateStartDate(e.target.value)} ></input>
+            <input type="date" id="startDate" name="startDate" value={this.state.startDate} onChange={e => this.updateStartDate(e.target.value)} ></input>
             <label for="finishDate">Finish Date</label>
-            <input type="date" id="finishDate" name="finishDate" onChange={e => this.updateFinishDate(e.target.value)}></input>
+            <input type="date" id="finishDate" name="finishDate" value={this.state.finishDate} onChange={e => this.updateFinishDate(e.target.value)}></input>
           
             <label htmlFor="name">Building*</label>
             <input type="text" className="folder__control"
