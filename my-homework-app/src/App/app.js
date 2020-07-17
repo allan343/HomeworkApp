@@ -6,6 +6,7 @@ import Home from '../Home/Home';
 import Calender from '../Calender/Calender';
 import Homework from '../Homework/Homework';
 import AddHomeworkForm from '../AddHomeworkForm/AddHomeworkForm';
+import EditHomeworkForm from '../EditHomeworkForm/EditHomeworkForm';
 import ApiContext from '../ApiContext/ApiContext';
 
 
@@ -178,9 +179,9 @@ return homework.homeworkId == id;
 };
 
 setHomeworkId = (homeworkId) => {
-
+console.log(homeworkId);
 this.setState({
-homeoworkId: homeworkId
+homeworkId: homeworkId
 });
 
 
@@ -237,6 +238,17 @@ return this.state.homeworkId;
                         </AddHomeworkForm>
                     }} />
 
+<Route exact path="/edit-homework" render={
+                    (routeProps) => {
+                        return <EditHomeworkForm {...routeProps}>
+                        </EditHomeworkForm>
+                    }} />
+
+            <Route exact path="/HomeworkDetails/Edit/:homeworkId" render={
+                    (routeProps) => {
+                        return <EditHomeworkForm {...this.handleGetClass(routeProps.match.params.homeworkId)}  {...routeProps}>
+                        </EditHomeworkForm>
+                    }} />
             </>
         );
     }

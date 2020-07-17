@@ -2,7 +2,7 @@ import React from 'react';
 import ApiContext from '../ApiContext/ApiContext';
 //import './ShowDetails.css';
 
-class AddHomeworkForm extends React.Component {
+class EditHomeworkForm extends React.Component {
   static contextType = ApiContext;
  // static contextType = ApiContext;
   // component that allows user
@@ -164,4 +164,4 @@ console.log(n);
   }
 }
 
-export default AddHomeworkForm ;
+export default EditHomeworkForm ;

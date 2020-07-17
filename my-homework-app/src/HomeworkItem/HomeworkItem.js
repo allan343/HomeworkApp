@@ -3,8 +3,8 @@ import React from 'react';
 
 
 export default function HomeworkItem(props) {
-  let schoolItem= props
-  console.log("props "+ schoolItem.className);
+  let homeworkItem= props
+  console.log("props "+ homeworkItem.description);
 
   return (
         <div className='HomeworkItem__row'>
@@ -17,4 +17,3 @@ export default function HomeworkItem(props) {
     
   )
 }
-
