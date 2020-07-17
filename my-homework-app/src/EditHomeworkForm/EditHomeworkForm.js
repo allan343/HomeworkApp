@@ -44,6 +44,14 @@ class EditHomeworkForm extends React.Component {
     this.props.history.push(`/`);
   }
 
+  
+  deleteHandle = (e) => {
+    e.preventDefault();
+    this.context.deleteHomework(this.context.getHomeworkId());
+  
+      this.props.history.push("/");
+    }
+
   updateDescription(description) {
   
     this.setState({ description: { value: description, touched: true } });
@@ -99,7 +107,7 @@ console.log(n);
            
           }
     
-        this.context.addHomework(homework);
+          this.context.updateHomework(homework,this.context.getHomeworkId());
       
         this.props.history.push(`/`);
         console.log("Homework"+ this.context.homeworkList);
@@ -156,6 +164,9 @@ console.log(n);
 
             <button type="submit" className="saveShowButton" onClick={this.context.a}>
               Save
+        </button>
+        <button type="reset" className="delShowButton" onClick={this.deleteHandle}>
+                Delete
         </button>
           </div>
         </form>

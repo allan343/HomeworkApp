@@ -27,7 +27,7 @@ export default class ClassDetails extends React.Component {
 
       <div className='SchoolClassItem__row'>
 
-<button type="cancel" className="cancelShowButton" onClick={this.props.hideClass}>
+<button type="cancel" className="cancelShowButton" onClick={this.props.hideHomework}>
             Back
         </button>
     { <h3> Description: {homework.description}</h3>}
