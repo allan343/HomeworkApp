@@ -35,6 +35,8 @@ class AddHomeworkForm extends React.Component {
       },
       priority:""
     };
+
+    this.updateClass = this.updateClass.bind(this);
   }
   //methods to update show state from user input
   cancelHandle = (e) => {
@@ -47,10 +49,15 @@ class AddHomeworkForm extends React.Component {
     this.setState({ description: { value: description, touched: true } });
    
   }
+  /*
   updateClass(schoolClass) {
+    console.log("updateclass "+schoolClass);
     this.setState({ schoolClass:schoolClass });
-  }
-
+  }*/
+  updateClass(event) {
+    console.log("updateclass "+event.target.value);
+    this.setState({ schoolClass: event.target.value });
+  };
   updateType(type) {
   
     this.setState({ type:type} );
@@ -80,7 +87,7 @@ class AddHomeworkForm extends React.Component {
           let homework = {
             homeworkId: Math.random(),
            description: this.state.description.value,
-           schoolClass: this.state.finishDate,
+           schoolClass: this.state.schoolClass,
             type: this.state.startDate,
             dueDate: this.state.dueDate,
             dueTime: this.state.dueTime.value,
@@ -91,6 +98,7 @@ class AddHomeworkForm extends React.Component {
         this.context.addHomework(homework);
       
         this.props.history.push(`/`);
+        console.log("Homework"+ this.context.homeworkList);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
@@ -101,8 +109,8 @@ class AddHomeworkForm extends React.Component {
             <label htmlFor="homeworkDesc">Description *</label>
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} />
-           <label for="cars">Choose class:</label>
-           <select name="schoolClass" id="schoolClass">
+           <label for="cars">Class:</label>
+           <select name="schoolClass" id="schoolClass" value={this.state.schoolClass} onChange={this.updateClass}>
           
            {
            
@@ -112,21 +120,7 @@ class AddHomeworkForm extends React.Component {
             )
            }
          </select>
-        
-           {/*
-            <select name="schoolClass" id="schoolClass">
-            <option value="Physics">Physics</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Math">Math</option>
-            <option value="English">English</option>
-             </select>
-
-           */}
-          
-
-
-
-
+         <label for="classType">Type:</label>
             <select name="classType" id="classType">
             <option value="Homework">Homework</option>
             <option value="Test">Test</option>
@@ -147,6 +141,7 @@ class AddHomeworkForm extends React.Component {
            <label htmlFor="name">Due Time e.g. 8:30 or 2:15 pm *</label>
            <input type="text" className="folder__control"
               name="startTime" id="startTime" value={this.state.dueTime.value} onChange={e => this.updateDueTime(e.target.value)} />
+           <label for="priority">Priority</label>
           <select name="priority" id="priority">
             <option value="High">High</option>
             <option value="Medium">Medium</option>

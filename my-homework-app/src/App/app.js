@@ -158,6 +158,7 @@ handleAddHomework = (homeworkObject) => {
          this.setState({
            homeworkList: newArr
         });  
+        console.log("homeworkList"+this.state.homeworkList);
 };
 
 //deletes a show from the backend

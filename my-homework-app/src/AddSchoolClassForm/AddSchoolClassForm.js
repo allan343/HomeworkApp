@@ -141,7 +141,8 @@ class AddSchoolClassForm extends React.Component {
             room: this.state.room.value,
             teacher: this.state.teacher.value,
             startTime:this.state.startTime.value,
-            endTime: this.state.endTime.value
+            endTime: this.state.endTime.value,
+            dayOfWeek: this.state.dayOfWeek
            
           }
 
@@ -178,15 +179,15 @@ class AddSchoolClassForm extends React.Component {
             <input type="text" className="folder__control"
               name="showdescription" id="showdescription" value={this.state.teacher.value} onChange={e => this.updateTeacher(e.target.value)} />
           
-           <input type="checkbox"  id="Sun" value={'Sun'} defaultChecked={true}  onChange={e=>this.updateDay(e.target.value)} />
+           <input type="checkbox"  id="Sun" value={'Sun'} onChange={e=>this.updateDay(e.target.value)} />
            <label for="Sun"> Sun</label><br></br>
            <input type="checkbox"  id="Mon" value={'Mon'}  onChange={e=>this.updateDay(e.target.value)} />
            <label for="Mon"> Mon</label><br></br>
-           <input type="checkbox"  id="Tues" value={'Tues'}  onChange={e=>this.updateDay(e.target.value)} />
+           <input type="checkbox"  id="Tue" value={'Tue'}  onChange={e=>this.updateDay(e.target.value)} />
            <label for="Tues"> Tues</label><br></br>
            <input type="checkbox"  id="Wed" value={'Wed'}   onChange={e=>this.updateDay(e.target.value)} />
            <label for="Wed"> Wed</label><br></br>
-           <input type="checkbox"  id="Thurs" value={'Thurs'} onChange={e=>this.updateDay(e.target.value)} />
+           <input type="checkbox"  id="Thur" value={'Thurs'} onChange={e=>this.updateDay(e.target.value)} />
            <label for="Thurs"> Thurs</label><br></br>
            <input type="checkbox"  id="Fri" value={'Fri'} onChange={e=>this.updateDay(e.target.value)} />
            <label for="Fri"> Fri</label><br></br>
