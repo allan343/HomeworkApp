@@ -20,20 +20,21 @@ class EditHomeworkForm extends React.Component {
   constructor(props) {
     //states a show can have
     super(props);
+    console.log(this.props.description);
     this.state = {
-      homeworkId: '',
+      homeworkId: this.props.homeworkId,
       description: {
-        value: '',
+        value: this.props.description,
         touched: false
       },
-      schoolClass: "",
-      type: "",
-      dueDate:"",
+      schoolClass: this.props.schoolClass,
+      type: this.props.type,
+      dueDate:this.props.dueDate,
       dueTime: {
-        value: '',
+        value: this.props.dueTime,
         touched: false
       },
-      priority:""
+      priority:this.props.priority
     };
 
     this.updateClass = this.updateClass.bind(this);
@@ -133,7 +134,7 @@ console.log(n);
            }
          </select>
          <label for="classType">Type:</label>
-            <select name="classType" id="classType">
+            <select name="classType" id="classType" value={this.state.type}>
             <option value="Homework">Homework</option>
             <option value="Test">Test</option>
             <option value="Study">Study</option>
@@ -147,14 +148,14 @@ console.log(n);
             <option value="Project">Project</option>
             </select>
             <label for="dueDate">Due Date</label>
-            <input type="date" id="finishDate" name="finishDate" onChange={e => this.updateDueDate(e.target.value)}></input>
+            <input type="date" id="finishDate" name="finishDate" onChange={e => this.updateDueDate(e.target.value)}   value={this.state.dueDate}></input>
           
           
            <label htmlFor="name">Due Time e.g. 8:30 or 2:15 pm *</label>
            <input type="text" className="folder__control"
-              name="startTime" id="startTime" value={this.state.dueTime.value} onChange={e => this.updateDueTime(e.target.value)} />
+              name="startTime" id="startTime" value={this.state.dueTime.value} onChange={e => this.updateDueTime(e.target.value)}  value={this.state.dueTime.value} />
            <label for="priority">Priority</label>
-          <select name="priority" id="priority">
+          <select name="priority" id="priority" value={this.state.priority}>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>

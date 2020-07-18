@@ -247,7 +247,7 @@ return this.state.homeworkId;
 
             <Route exact path="/HomeworkDetails/Edit/:homeworkId" render={
                     (routeProps) => {
-                        return <EditHomeworkForm {...this.handleGetClass(routeProps.match.params.homeworkId)}  {...routeProps}>
+                        return <EditHomeworkForm {...this.handleGetHomework(routeProps.match.params.homeworkId)}  {...routeProps}>
                         </EditHomeworkForm>
                     }} />
             </>
