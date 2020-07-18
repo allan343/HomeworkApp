@@ -140,7 +140,7 @@ class App extends Component {
 
     handleUpdateHomework = (homeworkObject, homeworkId) => {
 
-  
+        console.log("update being called?");
         let homework = this.state.homeworkList.find(homework => homework.homeworkId == homeworkId);
         for (let key in homework) {
             homework[key] = homeworkObject[key];
