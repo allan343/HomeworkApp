@@ -154,12 +154,13 @@ class App extends Component {
 
 
 handleAddHomework = (homeworkObject) => {
- 
+        
         const newArr= [...this.state.homeworkList, homeworkObject];
+        console.log(newArr);
          this.setState({
            homeworkList: newArr
         });  
-        console.log("homeworkList"+this.state.homeworkList);
+        //console.log("homeworkList"+this.state.homeworkList);
 };
 
 //deletes a show from the backend

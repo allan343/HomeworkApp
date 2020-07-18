@@ -12,7 +12,9 @@ export default class Home extends React.Component {
    //filter shows by their not yet watching state
   //only show shows that have that state for this view
   render() {
+    console.log(this.context);
     return (
+      
       <span className='NoteListMain__button-container'>
        
        <HeaderNav></HeaderNav>
