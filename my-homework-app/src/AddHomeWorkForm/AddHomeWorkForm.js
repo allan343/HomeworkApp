@@ -33,7 +33,7 @@ class AddHomeworkForm extends React.Component {
         value: '',
         touched: false
       },
-      priority: ""
+      priority: "High"
     };
 
    // this.updateClass = this.updateClass.bind(this);
@@ -61,6 +61,11 @@ class AddHomeworkForm extends React.Component {
   updateType =(event)=> {
     console.log(event.target.value);
     this.setState({ type: event.target.value });
+  };
+
+  updatePriority =(event)=> {
+    console.log(event.target.value);
+    this.setState({ priority: event.target.value });
   };
 
   updateDueDate(date) {
@@ -144,10 +149,10 @@ class AddHomeworkForm extends React.Component {
 
             <label htmlFor="name">Due Time e.g. 8:30 or 2:15 pm *</label>
             <input type="text" className="folder__control"
-              name="startTime" id="startTime" value={this.state.dueTime.value} onChange={e => this.updateDueTime(e.target.value)} />
+              name="startTime" id="startTime" onChange={e => this.updateDueTime(e.target.value)}/>
             <label for="priority">Priority</label>
-            <select name="priority" id="priority">
-              <option value="High">High</option>
+            <select name="priority" id="priority" onChange={this.updatePriority}>
+              <option value="High" selected>High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
             </select>
