@@ -27,7 +27,7 @@ class AddHomeworkForm extends React.Component {
         touched: false
       },
       schoolClass: "",
-      type: "",
+      type: "Homework",
       dueDate: "",
       dueTime: {
         value: '',
@@ -58,10 +58,10 @@ class AddHomeworkForm extends React.Component {
     console.log(event.target.value);
     this.setState({ schoolClass: event.target.value });
   };
-  updateType(type) {
-
-    this.setState({ type: type });
-  }
+  updateType =(event)=> {
+    console.log(event.target.value);
+    this.setState({ type: event.target.value });
+  };
 
   updateDueDate(date) {
     console.log(date);
@@ -92,7 +92,7 @@ class AddHomeworkForm extends React.Component {
             homeworkId: Math.random(),
             description: this.state.description.value,
             schoolClass: this.state.schoolClass,
-            type: this.state.startDate,
+            type: this.state.type,
             dueDate: this.state.dueDate,
             dueTime: this.state.dueTime.value,
             priority: this.state.priority
@@ -125,8 +125,8 @@ class AddHomeworkForm extends React.Component {
               }
             </select>
             <label for="classType">Type:</label>
-            <select name="classType" id="classType">
-              <option value="Homework">Homework</option>
+            <select name="classType" id="classType" onChange={this.updateType}>
+              <option selected="selected" value="Homework">Homework</option>
               <option value="Test">Test</option>
               <option value="Study">Study</option>
               <option value="Read">Read</option>

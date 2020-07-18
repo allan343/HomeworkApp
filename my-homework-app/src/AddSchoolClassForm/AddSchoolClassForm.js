@@ -103,11 +103,12 @@ class AddSchoolClassForm extends React.Component {
 
   updateDay(dayOfWeek) {
     console.log(dayOfWeek);
-    console.log(this.state)
+    console.log(this.state);
     let days={...this.state.dayOfWeek};
     let checked=!this.state.dayOfWeek[dayOfWeek];
     days[dayOfWeek] = checked;
     this.setState({ dayOfWeek:  days});
+    console.log(this.state);
   }
 
   updateStartDate(date) {
