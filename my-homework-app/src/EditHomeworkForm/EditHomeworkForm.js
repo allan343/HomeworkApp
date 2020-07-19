@@ -65,11 +65,10 @@ class EditHomeworkForm extends React.Component {
     console.log("updateclass "+schoolClass);
     this.setState({ schoolClass:schoolClass });
   }*/
-  updateClass(event) {
-    console.log("updateclass "+event.target.value);
+  updateClass =(event)=> {
+    
     this.setState({ schoolClass: event.target.value });
   };
-
   updateType =(event)=> {
     
     this.setState({ type: event.target.value });
@@ -87,18 +86,22 @@ console.log(n);
   
     this.setState({ dueTime: { value: time, touched: true} });
   }
-
+/*
   updatePriority(priority) {
     console.log("priority is "+priority);
     this.setState({ priority: priority });
-  }
+  }*/
+  updatePriority =(event)=> {
+    
+    this.setState({ priority: event.target.value });
+  };
 
   
 
   render() {
     let classList=  this.context.schoolClasses;
     return (
-      <div id="show-details">
+      <div id="homework-details">
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
           let homework = {
