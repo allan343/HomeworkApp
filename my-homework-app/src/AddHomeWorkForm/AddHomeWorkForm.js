@@ -148,7 +148,7 @@ class AddHomeworkForm extends React.Component {
               <option value="Project">Project</option>
             </select>
             <label for="dueDate">Due Date</label>
-            <input type="date" id="finishDate" name="finishDate" onChange={e => this.updateDueDate(e.target.value)}></input>
+            <input type="date" id="finishDate" name="finishDate" onChange={e => this.updateDueDate(e.target.value)} required></input>
 
 
             <label htmlFor="name">Due Time e.g. 8:30 or 2:15 pm *</label>

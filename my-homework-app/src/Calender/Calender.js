@@ -37,7 +37,7 @@ export default class Calender extends React.Component {
 
   render() {
 
-    
+    console.log(this.state.date);
     return (
       <span className='NoteListMain__button-container'>
        
