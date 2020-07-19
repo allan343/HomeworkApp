@@ -21,7 +21,7 @@ class EditHomeworkForm extends React.Component {
   constructor(props) {
     //states a show can have
     super(props);
-    console.log(this.props.priority);
+    console.log(this.props.schoolClass);
     this.state = {
       homeworkId: this.props.homeworkId,
       classId:this.props.classId,
@@ -38,7 +38,7 @@ class EditHomeworkForm extends React.Component {
       },
       priority:this.props.priority
     };
-
+    console.log(this.state.schoolClass);
 
   }
   //methods to update show state from user input
@@ -66,6 +66,7 @@ class EditHomeworkForm extends React.Component {
     this.setState({ schoolClass:schoolClass });
   }*/
   updateClass =(event)=> {
+    
     this.setState({classId:event.target.value})
     this.setState({ schoolClass: this.context.getClass(event.target.value).className });
   };
@@ -131,16 +132,16 @@ console.log(n);
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} />
            <label for="cars">Class:</label>
-           <select name="schoolClass" id="schoolClass" value={this.state.schoolClass} onChange={this.updateClass}>
-          
-           {
-           
-           classList.map(schoolClass => 
-             
-           <option value={schoolClass.classId}>{schoolClass.className}</option>
-            )
-           }
-         </select>
+            <select name="schoolClass" id="schoolClass" value={this.state.schoolClass} onChange={this.updateClass}>
+            <option value="-">--select--</option>
+              {
+
+                classList.map(schoolClass =>
+
+                  <option value={schoolClass.classId}>{schoolClass.className}</option>
+                )
+              }
+            </select>
          <label for="classType">Type:</label>
             <select name="classType" id="classType" value={this.state.type} onChange={this.updateType}>
             <option value="Homework">Homework</option>
