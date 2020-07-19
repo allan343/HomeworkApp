@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import SchoolClassItem from '../SchoolClassItem/SchoolClassItem';
-import HomeworkList from '../HomeworkList/HomeworkList'
 import ClassDetails from '../ClassDetails/ClassDetails';
 import ApiContext from '../ApiContext/ApiContext';
 
-class SchoolClassList extends Component {
+class CalenderSchoolClassList extends Component {
   static contextType = ApiContext;
 
   static defaultProps = {
@@ -53,12 +52,7 @@ class SchoolClassList extends Component {
             </li>
           )}
         </ul>
-        <NavLink className="addHomeWorkPath"
-        to={`/add-homework`}
-      >
-      Homework  +
-        </NavLink>
-<HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
+     
             </div>
           }
 
@@ -68,4 +62,4 @@ class SchoolClassList extends Component {
   }
 }
 
-export default SchoolClassList;
+export default CalenderSchoolClassList;

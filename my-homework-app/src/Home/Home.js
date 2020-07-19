@@ -25,12 +25,13 @@ export default class Home extends React.Component {
             </NavLink>
            
     <SchoolClassList schoolClasses={this.context.schoolClasses} ></SchoolClassList>
+    {/*
     <NavLink className="addHomeWorkPath"
             to={`/add-homework`}
           >
           Homework  +
             </NavLink>
-            <HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
+    <HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>*/}
 
       </span>
     )

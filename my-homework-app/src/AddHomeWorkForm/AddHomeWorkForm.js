@@ -9,6 +9,7 @@ class AddHomeworkForm extends React.Component {
   // to fill in show details
   static defaultProps = {
     homeworkId: '',
+    classId:'',
     description: '',
     schoolClass: '',
     type: '',
@@ -22,6 +23,7 @@ class AddHomeworkForm extends React.Component {
     super(props);
     this.state = {
       homeworkId: '',
+      classId: '',
       description: {
         value: '',
         touched: false
@@ -56,7 +58,8 @@ class AddHomeworkForm extends React.Component {
   }*/
   updateClass =(event)=> {
     console.log(event.target.value);
-    this.setState({ schoolClass: event.target.value });
+    this.setState({classId:event.target.value})
+    this.setState({ schoolClass: this.context.getClass(event.target.value).className });
   };
   updateType =(event)=> {
     console.log(event.target.value);
@@ -95,6 +98,7 @@ class AddHomeworkForm extends React.Component {
           event.preventDefault();
           let homework = {
             homeworkId: Math.random(),
+            classId: this.state.classId,
             description: this.state.description.value,
             schoolClass: this.state.schoolClass,
             type: this.state.type,
@@ -125,7 +129,7 @@ class AddHomeworkForm extends React.Component {
 
                 classList.map(schoolClass =>
 
-                  <option value={schoolClass.className}>{schoolClass.className}</option>
+                  <option value={schoolClass.classId}>{schoolClass.className}</option>
                 )
               }
             </select>

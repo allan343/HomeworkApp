@@ -1,7 +1,7 @@
 import React from 'react';
 import ApiContext from '../ApiContext/ApiContext';
 import { NavLink, Link } from 'react-router-dom';
-
+import HomeworkList from '../HomeworkList/HomeworkList'
 
 
 export default class ClassDetails extends React.Component {
@@ -43,7 +43,12 @@ export default class ClassDetails extends React.Component {
           >
             Edit
             </NavLink>
-     
+            <NavLink className="addHomeWorkPath"
+        to={`/add-homework`}
+      >
+      Homework  +
+        </NavLink>
+<HomeworkList homeworkList={this.context.homeworkList.filter(homework=>homework.classId== this.props.classId)} ></HomeworkList>
       </div>
     
    
