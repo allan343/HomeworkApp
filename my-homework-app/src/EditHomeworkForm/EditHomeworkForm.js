@@ -66,8 +66,8 @@ class EditHomeworkForm extends React.Component {
     this.setState({ schoolClass:schoolClass });
   }*/
   updateClass =(event)=> {
-    
-    this.setState({ schoolClass: event.target.value });
+    this.setState({classId:event.target.value})
+    this.setState({ schoolClass: this.context.getClass(event.target.value).className });
   };
   updateType =(event)=> {
     
@@ -87,9 +87,9 @@ console.log(n);
     this.setState({ dueTime: { value: time, touched: true} });
   }
 /*
-  updatePriority(priority) {
-    console.log("priority is "+priority);
-    this.setState({ priority: priority });
+  updatePriority(event) {
+  
+    this.setState({ priority: event.target.value });
   }*/
   updatePriority =(event)=> {
     
@@ -137,7 +137,7 @@ console.log(n);
            
            classList.map(schoolClass => 
              
-           <option value={schoolClass.className}>{schoolClass.className}</option>
+           <option value={schoolClass.classId}>{schoolClass.className}</option>
             )
            }
          </select>
