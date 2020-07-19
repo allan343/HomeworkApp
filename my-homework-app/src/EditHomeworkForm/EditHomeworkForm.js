@@ -29,7 +29,7 @@ class EditHomeworkForm extends React.Component {
         value: this.props.description,
         touched: false
       },
-      schoolClass: this.props.schoolClass,
+      schoolClass:this.props.schoolClass,
       type: this.props.type,
       dueDate:this.props.dueDate,
       dueTime: {
@@ -66,9 +66,10 @@ class EditHomeworkForm extends React.Component {
     this.setState({ schoolClass:schoolClass });
   }*/
   updateClass =(event)=> {
-    
+    console.log(this.context.getClass(event.target.value).className);
     this.setState({classId:event.target.value})
     this.setState({ schoolClass: this.context.getClass(event.target.value).className });
+    console.log(this.state);
   };
   updateType =(event)=> {
     
@@ -132,7 +133,7 @@ console.log(n);
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} />
            <label for="cars">Class:</label>
-            <select name="schoolClass" id="schoolClass" value={this.state.schoolClass} onChange={this.updateClass}>
+            <select name="schoolClass" id="schoolClass" value={this.state.classId} onChange={this.updateClass}>
             <option value="-">--select--</option>
               {
 
