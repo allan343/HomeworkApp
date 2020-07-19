@@ -8,7 +8,7 @@ class EditSchoolClassForm extends React.Component {
   // component that allows user
   // to fill in show details
   static defaultProps = {
-    id: '',
+    classId: '',
     className: '',
     finishDate: '',
     startDate: '',
@@ -51,15 +51,7 @@ class EditSchoolClassForm extends React.Component {
         value: this.props.teacher,
         touched: false
       },
-      dayofweek:{
-        Sun: false,
-                Mon: false,
-                Tue: false,
-                Wed: false,
-                Thurs: false,
-                Fri: false,
-                Sat: false,
-        },
+      dayofweek:this.props.dayOfWeek,
           startTime: {
             value: this.props.startTime,
             touched: false
@@ -130,11 +122,13 @@ class EditSchoolClassForm extends React.Component {
 
   render() {
     console.log(this.props.startDate);
+    console.log(this.state);
     return (
       <div id="show-details">
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
           let schoolClass = {
+            classId: this.state.classId,
             className: this.state.className.value,
             finishDate: this.state.finishDate,
             startDate: this.state.startDate,

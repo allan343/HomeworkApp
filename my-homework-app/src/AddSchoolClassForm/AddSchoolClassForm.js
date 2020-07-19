@@ -8,7 +8,7 @@ class AddSchoolClassForm extends React.Component {
   // component that allows user
   // to fill in show details
   static defaultProps = {
-    id: '',
+    classId: '',
     className: '',
     finishDate: '',
     startDate: '',
