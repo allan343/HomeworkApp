@@ -9,6 +9,7 @@ class EditHomeworkForm extends React.Component {
   // to fill in show details
   static defaultProps = {
     homeworkId: '',
+    classId:'',
     description: '',
     schoolClass: '',
     type: '',
@@ -20,9 +21,10 @@ class EditHomeworkForm extends React.Component {
   constructor(props) {
     //states a show can have
     super(props);
-    console.log(this.props.description);
+    console.log(this.props.priority);
     this.state = {
       homeworkId: this.props.homeworkId,
+      classId:this.props.classId,
       description: {
         value: this.props.description,
         touched: false
@@ -37,7 +39,7 @@ class EditHomeworkForm extends React.Component {
       priority:this.props.priority
     };
 
-    this.updateClass = this.updateClass.bind(this);
+
   }
   //methods to update show state from user input
   cancelHandle = (e) => {
@@ -67,10 +69,11 @@ class EditHomeworkForm extends React.Component {
     console.log("updateclass "+event.target.value);
     this.setState({ schoolClass: event.target.value });
   };
-  updateType(type) {
-  
-    this.setState({ type:type} );
-  }
+
+  updateType =(event)=> {
+    
+    this.setState({ type: event.target.value });
+  };
 
   updateDueDate(date) {
     console.log(date);
@@ -86,6 +89,7 @@ console.log(n);
   }
 
   updatePriority(priority) {
+    console.log("priority is "+priority);
     this.setState({ priority: priority });
   }
 
@@ -98,10 +102,11 @@ console.log(n);
         <form className="folder" onSubmit={(event) => {
           event.preventDefault();
           let homework = {
-            homeworkId: Math.random(),
+            homeworkId: this.state.homeworkId,
+            classId: this.state.classId,
            description: this.state.description.value,
-           schoolClass: this.state.schoolClass.value,
-            type: this.state.startDate,
+           schoolClass: this.state.schoolClass,
+            type: this.state.type,
             dueDate: this.state.dueDate,
             dueTime: this.state.dueTime.value,
             priority: this.state.priority
@@ -134,7 +139,7 @@ console.log(n);
            }
          </select>
          <label for="classType">Type:</label>
-            <select name="classType" id="classType" value={this.state.type}>
+            <select name="classType" id="classType" value={this.state.type} onChange={this.updateType}>
             <option value="Homework">Homework</option>
             <option value="Test">Test</option>
             <option value="Study">Study</option>
@@ -155,15 +160,15 @@ console.log(n);
            <input type="text" className="folder__control"
               name="startTime" id="startTime" value={this.state.dueTime.value} onChange={e => this.updateDueTime(e.target.value)}  value={this.state.dueTime.value} />
            <label for="priority">Priority</label>
-          <select name="priority" id="priority" value={this.state.priority}>
+          <select name="priority" id="priority" value={this.state.priority} onChange={this.updatePriority}>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
+            <option value="Low">Low</option>      
             </select>
           </div>
           <div className="addShow__button__group">
 
-            <button type="submit" className="saveShowButton" onClick={this.context.a}>
+            <button type="submit" className="saveShowButton" >
               Save
         </button>
         <button type="reset" className="delShowButton" onClick={this.deleteHandle}>

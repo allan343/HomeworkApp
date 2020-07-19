@@ -163,7 +163,7 @@ class AddHomeworkForm extends React.Component {
           </div>
           <div className="addShow__button__group">
 
-            <button type="submit" className="saveShowButton" onClick={this.context.a}>
+            <button type="submit" className="saveShowButton">
               Save
         </button>
           </div>
