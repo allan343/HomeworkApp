@@ -28,9 +28,11 @@ export default class Home extends React.Component {
           >
           Homework  +
     </NavLink>*/}
-    <HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
 
-      </span>
+{(this.context.classClicked)? <HomeworkList homeworkList={this.context.homeworkList.filter(homework=>homework.classId== this.context.getClassId())} ></HomeworkList> :
+<HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
+   
+    } </span>
     )
   }
 }

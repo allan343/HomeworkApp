@@ -19,8 +19,25 @@ class App extends Component {
         homeworkList: [],
         classId:'',
         homeworkId:'',
+        classClicked: false
     };
 
+
+  setClassClicked = (classId)=> {
+    console.log("classid "+classId);
+    this.setState({  classClicked: true });
+    this.setClassId(classId);
+  //alert("hi!");
+  //console.log("h1!"+ this.context.getClassId());
+  }
+
+  closeClass=()=> {
+    console.log("closeclass?")
+    this.setState({  classClicked: false });
+   
+  }
+
+    
     handleUpdateSchoolClass = (classObject, classId) => {
 
   
@@ -262,6 +279,7 @@ return this.state.homeworkId;
         const value = {
             schoolClasses: this.state.schoolClasses,
             homeworkList: this.state.homeworkList,
+            classClicked: this.state.classClicked,
             addSchoolClass: this.handleAddSchoolClass,
             deleteClass: this.handleDeleteClass,
             updateClass: this.handleUpdateSchoolClass,
@@ -273,7 +291,9 @@ return this.state.homeworkId;
             updateHomework: this.handleUpdateHomework,
             setHomeworkId: this.setHomeworkId,
             getHomeworkId: this.getHomeworkId,
-            getHomework: this.handleGetHomework
+            getHomework: this.handleGetHomework,
+            setClassClicked: this.setClassClicked,
+            closeClass: this.closeClass
 
 
            

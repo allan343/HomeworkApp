@@ -37,7 +37,7 @@ class HomeworkList extends Component {
     const { homeworkList } = this.props
     console.log(homeworkList);
     return (
-      <section className='HomeworkList'>
+      <section className='HomeWorkList'>
         {
      <NavLink className="addHomeWorkPath"
         to={`/add-homework`}  

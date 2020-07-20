@@ -13,21 +13,21 @@ export default class ClassDetails extends React.Component {
     cancelHandle() {
         //e.preventDefault();
        // this.props.history.goBack();
-       this.props.closeClass();
+       this.context.closeClass();
       }
     
 
   render() {
     console.log(this. props.classId);
   let schoolClass = this.context.getClass(this.props.classId);
-  console.log(schoolClass.className);
+
   return (
 
 
 
       <div className='SchoolClassItem__row'>
 
-<button type="cancel" className="cancelShowButton" onClick={this.props.hideClass}>
+<button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
             Back
         </button>
     { <h3> {schoolClass.className}</h3>}

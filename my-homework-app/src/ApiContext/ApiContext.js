@@ -5,6 +5,7 @@ export default React.createContext({
 
   schoolClasses: [],
   homeworkList: [],
+  classClicked: false,
   addSchoolClass: () => { },
   deleteClass: () => { },
   getClass: () => { },
@@ -18,4 +19,7 @@ export default React.createContext({
   updateHomework: () => { },
   getHomeworkId: () => { },
   setHomeworkId: () => { },
+  setClassClicked: ()=>{ },
+  closeClass: ()=>{ }
+  
 })

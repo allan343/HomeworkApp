@@ -15,10 +15,11 @@ class SchoolClassList extends Component {
   constructor(props)
   {
     super(props);
+    /*
   this.state = {
     clicked: false
-  };
-  }
+  };*/
+  }/*
   classClicked(classId) {
     console.log("classid "+classId);
     this.setState({  clicked: true });
@@ -31,12 +32,13 @@ class SchoolClassList extends Component {
  
     this.setState({  clicked: false });
    
-  }
+  }*/
 
 
   render() {
     const { schoolClasses } = this.props
     console.log(schoolClasses);
+    console.log(this.context.classClicked);
     return (
       <section className='SchoolClassList'>
     
@@ -45,12 +47,12 @@ class SchoolClassList extends Component {
           >
           Classes  +
             </NavLink>
-     {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} hideClass={()=>{this.setState({clicked:false})}} /> : 
+     {(this.context.classClicked)? <ClassDetails classId={this.context.getClassId()} hideClass={()=>{this.setState({clicked:false})}} /> : 
        <div>
      <ul className='SchoolClassList__list' aria-live='polite'>
           {schoolClasses.map(schoolClass =>
   
-            <li id="class" onClick={() => this.classClicked(schoolClass.classId)}> 
+            <li id="class" onClick={() => this.context.setClassClicked(schoolClass.classId)}> 
               <SchoolClassItem
               key={schoolClass.classId}
              {...schoolClass}
