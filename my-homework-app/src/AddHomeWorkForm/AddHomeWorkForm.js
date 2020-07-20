@@ -43,7 +43,8 @@ class AddHomeworkForm extends React.Component {
   //methods to update show state from user input
   cancelHandle = (e) => {
     e.preventDefault();
-    this.props.history.push(`/`);
+   // this.props.history.push(`/`);
+   this.props.history.goBack();
   }
 
   updateDescription(description) {
@@ -110,7 +111,8 @@ class AddHomeworkForm extends React.Component {
 
           this.context.addHomework(homework);
 
-          this.props.history.push(`/`);
+        //  this.props.history.push(`/`);
+        this.props.history.goBack();
           console.log("Homework" + this.context.homeworkList);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>

@@ -1,8 +1,10 @@
 import React from 'react';
 import CalenderSchoolClassList from '../CalenderSchoolClassList/CalenderSchoolClassList';
+import SchoolClassList from '../SchoolClassList/SchoolClassList';
 import HomeworkList from '../HomeworkList/HomeworkList';
 import ApiContext from '../ApiContext/ApiContext';
 import HeaderNav from '../HeaderNav/HeaderNav';
+import './Calender.css';
 
 export default class Calender extends React.Component {
 
@@ -42,10 +44,13 @@ export default class Calender extends React.Component {
       <span className='NoteListMain__button-container'>
        
        <HeaderNav></HeaderNav>
+       <div class="calenderAndClases">
        <label for="startDate">Select a day</label>
             <input type="date" id="startDate" name="startDate" onChange={e => this.updateDayOfWeek(e.target.value)} ></input>
+            </div>
         Classes:
-        <CalenderSchoolClassList schoolClasses={ this.context.schoolClasses.filter(schoolClass => schoolClass.dayOfWeek[this.state.dayOfWeek]==true)} ></CalenderSchoolClassList>
+        <SchoolClassList schoolClasses={ this.context.schoolClasses.filter(schoolClass => schoolClass.dayOfWeek[this.state.dayOfWeek]==true)} ></SchoolClassList>
+       
        Homework due that day:
        <HomeworkList homeworkList={   this.context.homeworkList.filter(homework => homework.dueDate==this.state.date)} ></HomeworkList>
       </span>

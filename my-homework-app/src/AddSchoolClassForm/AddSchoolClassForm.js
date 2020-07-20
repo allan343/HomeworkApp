@@ -79,7 +79,8 @@ class AddSchoolClassForm extends React.Component {
   //methods to update show state from user input
   cancelHandle = (e) => {
     e.preventDefault();
-    this.props.history.push(`/`);
+   // this.props.history.push(`/`);
+   this.props.history.goBack();
   }
 
   updateClassName(className) {
@@ -154,7 +155,8 @@ class AddSchoolClassForm extends React.Component {
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
         this.context.addSchoolClass(schoolClass);
-        this.props.history.push(`/`);
+       // this.props.history.push(`/`);
+       this.props.history.goBack();
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>

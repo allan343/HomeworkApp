@@ -15,38 +15,8 @@ class App extends Component {
     state = {
         //array that holds all shows
        
-        schoolClasses: [
-            { classId: '1',
-                className: 'math',
-                finishDate: '12/19/2020',
-                startDate: '7/7/2020',
-                building: 'mcld',
-                room:'202',
-                teacher: 'willan',
-                startTime:'9:00am',
-                endTime: '10:00am',
-                dayOfWeek:{
-                    Sun: false,
-                            Mon:true,
-                            Tue: false,
-                            Wed: true,
-                            Thurs: false,
-                            Fri: true,
-                            Sat: false,
-                    }}
-
-        ],
-        homeworkList: [
-          {  homeworkId: '1',
-            classId: '1',
-            description: 'homeowkr',
-            schoolClass: 'math',
-            type: 'Homework',
-            dueDate: '',
-            dueTime: '',
-            priority: ''
-        }
-        ],
+        schoolClasses: [],
+        homeworkList: [],
         classId:'',
         homeworkId:'',
     };
