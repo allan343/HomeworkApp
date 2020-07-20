@@ -25,7 +25,15 @@ class App extends Component {
                 teacher: 'willan',
                 startTime:'9:00am',
                 endTime: '10:00am',
-                dayOfWeek: ''}
+                dayOfWeek:{
+                    Sun: false,
+                            Mon:true,
+                            Tue: false,
+                            Wed: true,
+                            Thurs: false,
+                            Fri: true,
+                            Sat: false,
+                    }}
 
         ],
         homeworkList: [

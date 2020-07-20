@@ -4,7 +4,7 @@ import ApiContext from '../ApiContext/ApiContext';
 
 class EditSchoolClassForm extends React.Component {
   static contextType = ApiContext;
- // static contextType = ApiContext;
+  // static contextType = ApiContext;
   // component that allows user
   // to fill in show details
   static defaultProps = {
@@ -15,22 +15,23 @@ class EditSchoolClassForm extends React.Component {
     building: '',
     room: '',
     teacher: '',
-    dayOfWeek:{
-    Sun: false,
-            Mon: false,
-            Tue: false,
-            Wed: false,
-            Thursday: false,
-            Friday: false,
-            Sat: false,
+    dayOfWeek: {
+      Sun: false,
+      Mon: false,
+      Tue: false,
+      Wed: false,
+      Thursday: false,
+      Friday: false,
+      Sat: false,
     },
-            StartTime:'',
-            EndTime:''
+    StartTime: '',
+    EndTime: ''
   };
 
   constructor(props) {
     //states a show can have
     super(props);
+    console.log(this.props.dayOfWeek);
     this.state = {
       classId: this.props.classId,
       className: {
@@ -51,16 +52,16 @@ class EditSchoolClassForm extends React.Component {
         value: this.props.teacher,
         touched: false
       },
-      dayofweek:this.props.dayOfWeek,
-          startTime: {
-            value: this.props.startTime,
-            touched: false
-          },
-          endTime: {
-            value: this.props.endTime,
-            touched: false
-          }
-       
+      dayOfWeek: this.props.dayOfWeek,
+      startTime: {
+        value: this.props.startTime,
+        touched: false
+      },
+      endTime: {
+        value: this.props.endTime,
+        touched: false
+      }
+
 
     };
   }
@@ -68,10 +69,10 @@ class EditSchoolClassForm extends React.Component {
   deleteHandle = (e) => {
     e.preventDefault();
     this.context.deleteClass(this.context.getClassId());
-  
-      this.props.history.push("/");
-    }
-  
+
+    this.props.history.push("/");
+  }
+
   //methods to update show state from user input
   cancelHandle = (e) => {
     e.preventDefault();
@@ -81,7 +82,7 @@ class EditSchoolClassForm extends React.Component {
   updateClassName(className) {
     console.log("classname is " + className);
     this.setState({ className: { value: className, touched: true } });
-    console.log("state classname "+ this.state.className);
+    console.log("state classname " + this.state.className);
   }
 
   updateBuilding(building) {
@@ -98,10 +99,11 @@ class EditSchoolClassForm extends React.Component {
   }
 
   updateDay(dayOfWeek) {
-    let days={...this.state.dayOfWeek};
-    let checked=!this.state.dayOfWeek[dayOfWeek];
+    console.log(this.state.dayOfWeek);
+    let days = { ...this.state.dayOfWeek };
+    let checked = !this.state.dayOfWeek[dayOfWeek];
     days[dayOfWeek] = checked;
-    this.setState({ dayOfWeek:  days});
+    this.setState({ dayOfWeek: days });
   }
 
   updateStartDate(date) {
@@ -135,19 +137,20 @@ class EditSchoolClassForm extends React.Component {
             building: this.state.building.value,
             room: this.state.room.value,
             teacher: this.state.teacher.value,
-            startTime:this.state.startTime.value,
-            endTime: this.state.endTime.value
-           
+            startTime: this.state.startTime.value,
+            endTime: this.state.endTime.value,
+            dayOfWeek: this.state.dayOfWeek
+
           }
 
-          console.log("object classname"+schoolClass);
+          console.log("object classname" + schoolClass);
           //we needed a callback function for 
           // add show
           // in app.js add show does a call/promise to backend
           // can happen asyncronously
           // callback function ensures we have newid from add show context method
-        this.context.updateClass(schoolClass,this.context.getClassId());
-        this.props.history.push(`/`);
+          this.context.updateClass(schoolClass, this.context.getClassId());
+          this.props.history.push(`/`);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
           <button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
@@ -159,39 +162,46 @@ class EditSchoolClassForm extends React.Component {
             <input type="text" className="folder__control"
               name="classname" id="classname" value={this.state.className.value} onChange={e => this.updateClassName(e.target.value)} />
             <label for="startDate">Start Date</label>
+
             <input type="date" id="startDate" name="startDate" value={this.state.startDate} onChange={e => this.updateStartDate(e.target.value)} ></input>
+
             <label for="finishDate">Finish Date</label>
             <input type="date" id="finishDate" name="finishDate" value={this.state.finishDate} onChange={e => this.updateFinishDate(e.target.value)}></input>
-          
+
             <label htmlFor="name">Building*</label>
             <input type="text" className="folder__control"
               name="building" id="building" value={this.state.building.value} onChange={e => this.updateBuilding(e.target.value)} />
             <label htmlFor="name">Room *</label>
-            <input type="text"  className="room"
+            <input type="text" className="room"
               name="room" id="room" value={this.state.room.value} onChange={e => this.updateRoom(e.target.value)} />
             <label htmlFor="name">Teacher *</label>
             <input type="text" className="folder__control"
               name="showdescription" id="showdescription" value={this.state.teacher.value} onChange={e => this.updateTeacher(e.target.value)} />
-          
-           <input type="checkbox"  id="Sun" value={'Sun'} defaultChecked={true}  onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Sun"> Sun</label><br></br>
-           <input type="checkbox"  id="Mon" value={'Mon'}  onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Mon"> Mon</label><br></br>
-           <input type="checkbox"  id="Tues" value={'Tues'}  onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Tues"> Tues</label><br></br>
-           <input type="checkbox"  id="Wed" value={'Wed'}   onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Wed"> Wed</label><br></br>
-           <input type="checkbox"  id="Thurs" value={'Thurs'} onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Thurs"> Thurs</label><br></br>
-           <input type="checkbox"  id="Fri" value={'Fri'} onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Fri"> Fri</label><br></br>
-           <input type="checkbox"  id="Sat" value={'Sat'}  onChange={e=>this.updateDay(e.target.value)} />
-           <label for="Sat"> Sat</label><br></br>
-           <label htmlFor="name">Start Time e.g. 8:30 or 2:15 pm *</label>
-           <input type="text" className="folder__control"
+            {/*
+              (this.state.dayOfWeek.Sun) ?
+              (  <input checked type="checkbox" id="Sun" value={'Sun'} defaultChecked={true} onChange={e => this.updateDay(e.target.value)} />)
+                :
+              (  <input type="checkbox" id="Sun" value={'Sun'} defaultChecked={true} onChange={e => this.updateDay(e.target.value)} />)
+            */}
+             <input type="checkbox" id="Sun" value={'Sun'} defaultChecked={this.state.dayOfWeek.Sun ? true: false} onChange={e => this.updateDay(e.target.value)} />
+            <label for="Sun"> Sun</label><br></br>
+            <input type="checkbox" id="Mon" value={'Mon'} defaultChecked={this.state.dayOfWeek.Mon ? true: false} onChange={e => this.updateDay(e.target.value)} />
+            <label for="Mon"> Mon</label><br></br>
+            <input type="checkbox" id="Tue" value={'Tue'} defaultChecked={this.state.dayOfWeek.Tue ? true: false} onChange={e => this.updateDay(e.target.value)} />
+            <label for="Tue"> Tues</label><br></br>
+            <input type="checkbox" id="Wed" value={'Wed'} defaultChecked={this.state.dayOfWeek.Wed ? true: false } onChange={e => this.updateDay(e.target.value)} />
+            <label for="Wed"> Wed</label><br></br>
+            <input type="checkbox" id="Thurs" value={'Thurs'} defaultChecked={this.state.dayOfWeek.Thurs ? true: false} onChange={e => this.updateDay(e.target.value)} />
+            <label for="Thurs"> Thurs</label><br></br>
+            <input type="checkbox" id="Fri" value={'Fri'} defaultChecked={this.state.dayOfWeek.Fri ? true: false} onChange={e => this.updateDay(e.target.value)} />
+            <label for="Fri"> Fri</label><br></br>
+            <input type="checkbox" id="Sat" value={'Sat'} defaultChecked={this.state.dayOfWeek.Sat ? true: false} onChange={e => this.updateDay(e.target.value)} />
+            <label for="Sat"> Sat</label><br></br>
+            <label htmlFor="name">Start Time e.g. 8:30 or 2:15 pm *</label>
+            <input type="text" className="folder__control"
               name="startTime" id="startTime" value={this.state.startTime.value} onChange={e => this.updateStartTime(e.target.value)} />
-             <label htmlFor="name">End Time e.g. 8:30 or 2:15 pm *</label>
-             <input type="text" className="folder__control"
+            <label htmlFor="name">End Time e.g. 8:30 or 2:15 pm *</label>
+            <input type="text" className="folder__control"
               name="endTime" id="endTime" value={this.state.endTime.value} onChange={e => this.updateEndTime(e.target.value)} />
           </div>
           <div className="addShow__button__group">
@@ -199,8 +209,8 @@ class EditSchoolClassForm extends React.Component {
             <button type="submit" className="saveShowButton" onClick={this.context.a}>
               Save
         </button>
-        <button type="reset" className="delShowButton" onClick={this.deleteHandle}>
-                Delete
+            <button type="reset" className="delShowButton" onClick={this.deleteHandle}>
+              Delete
         </button>
           </div>
         </form>
@@ -209,4 +219,4 @@ class EditSchoolClassForm extends React.Component {
   }
 }
 
-export default EditSchoolClassForm ;
+export default EditSchoolClassForm;
