@@ -60,11 +60,7 @@ class EditHomeworkForm extends React.Component {
     this.setState({ description: { value: description, touched: true } });
    
   }
-  /*
-  updateClass(schoolClass) {
-    console.log("updateclass "+schoolClass);
-    this.setState({ schoolClass:schoolClass });
-  }*/
+
   updateClass =(event)=> {
     console.log(this.context.getClass(event.target.value).className);
     this.setState({classId:event.target.value})
@@ -88,11 +84,7 @@ console.log(n);
   
     this.setState({ dueTime: { value: time, touched: true} });
   }
-/*
-  updatePriority(event) {
-  
-    this.setState({ priority: event.target.value });
-  }*/
+
   updatePriority =(event)=> {
     
     this.setState({ priority: event.target.value });
