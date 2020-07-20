@@ -22,7 +22,9 @@ class App extends Component {
         classClicked: false
     };
 
-
+    contest = (classId)=> {
+        alert('hi');
+      }
   setClassClicked = (classId)=> {
     console.log("classid "+classId);
     this.setState({  classClicked: true });
@@ -293,7 +295,8 @@ return this.state.homeworkId;
             getHomeworkId: this.getHomeworkId,
             getHomework: this.handleGetHomework,
             setClassClicked: this.setClassClicked,
-            closeClass: this.closeClass
+            closeClass: this.closeClass,
+            constest: this.contest
 
 
            

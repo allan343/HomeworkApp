@@ -20,6 +20,7 @@ export default React.createContext({
   getHomeworkId: () => { },
   setHomeworkId: () => { },
   setClassClicked: ()=>{ },
-  closeClass: ()=>{ }
+  closeClass: ()=>{ },
+  contest: ()=>{},
   
 })

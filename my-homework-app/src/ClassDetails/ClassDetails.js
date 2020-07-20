@@ -18,8 +18,9 @@ export default class ClassDetails extends React.Component {
     
 
   render() {
-    console.log(this. props.classId);
+    console.log(this.props.classId);
   let schoolClass = this.context.getClass(this.props.classId);
+  console.log(schoolClass);
 
   return (
 
@@ -27,7 +28,7 @@ export default class ClassDetails extends React.Component {
 
       <div className='SchoolClassItem__row'>
 
-<button type="cancel" className="cancelShowButton" onClick={this.cancelHandle}>
+<button type="cancel" className="cancelShowButton" onClick={()=>this.cancelHandle()}>
             Back
         </button>
     { <h3> {schoolClass.className}</h3>}
