@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import HomeworkItem from '../HomeworkItem/HomeworkItem';
 import HomeworkDetails from '../HomeworkDetails/HomeworkDetails';
 import ApiContext from '../ApiContext/ApiContext';
@@ -37,7 +38,16 @@ class HomeworkList extends Component {
     console.log(homeworkList);
     return (
       <section className='HomeworkList'>
+        {
+     <NavLink className="addHomeWorkPath"
+        to={`/add-homework`}  
+        >
+        Homework  +
+        </NavLink>
+  }
      {
+   
+       
      (this.state.clicked)? <HomeworkDetails homeworkId={this.context.getHomeworkId()} hideHomework={()=>{this.setState({clicked:false})}} /> :
       <ul className='SchoolClassList__list' aria-live='polite'>
           {homeworkList.map(homework =>

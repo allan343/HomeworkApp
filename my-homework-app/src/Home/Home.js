@@ -4,6 +4,7 @@ import ApiContext from '../ApiContext/ApiContext';
 import HeaderNav from '../HeaderNav/HeaderNav';
 import SchoolClassList from '../SchoolClassList/SchoolClassList';
 import HomeworkList from '../HomeworkList/HomeworkList'
+import '../main.css';
 
 
 export default class Home extends React.Component {
@@ -18,20 +19,16 @@ export default class Home extends React.Component {
       <span className='NoteListMain__button-container'>
        
        <HeaderNav></HeaderNav>
-       <NavLink className="addClassPath"
-            to={`/add-class`}
-          >
-          Classes  +
-            </NavLink>
-           
+      
+       
     <SchoolClassList schoolClasses={this.context.schoolClasses} ></SchoolClassList>
     {/*
     <NavLink className="addHomeWorkPath"
             to={`/add-homework`}
           >
           Homework  +
-            </NavLink>
-    <HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>*/}
+    </NavLink>*/}
+    <HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
 
       </span>
     )

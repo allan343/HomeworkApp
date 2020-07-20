@@ -39,7 +39,12 @@ class SchoolClassList extends Component {
     console.log(schoolClasses);
     return (
       <section className='SchoolClassList'>
-     
+    
+      <NavLink className="addClassPath"
+            to={`/add-class`}
+          >
+          Classes  +
+            </NavLink>
      {(this.state.clicked)? <ClassDetails classId={this.context.getClassId()} hideClass={()=>{this.setState({clicked:false})}} /> : 
        <div>
      <ul className='SchoolClassList__list' aria-live='polite'>
@@ -53,17 +58,15 @@ class SchoolClassList extends Component {
             </li>
           )}
         </ul>
-        <NavLink className="addHomeWorkPath"
-        to={`/add-homework`}
-      >
-      Homework  +
-        </NavLink>
-<HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>
+     
+        {   /*
+<HomeworkList homeworkList={this.context.homeworkList} ></HomeworkList>*/}
             </div>
           }
 
-       
-      </section>
+
+     
+       </section>
     );
   }
 }

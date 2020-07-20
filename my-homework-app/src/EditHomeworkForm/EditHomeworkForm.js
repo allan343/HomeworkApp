@@ -44,7 +44,8 @@ class EditHomeworkForm extends React.Component {
   //methods to update show state from user input
   cancelHandle = (e) => {
     e.preventDefault();
-    this.props.history.push(`/`);
+    //this.props.history.push(`/`);
+    this.props.history.goBack();
   }
 
   

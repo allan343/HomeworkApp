@@ -43,13 +43,15 @@ export default class ClassDetails extends React.Component {
           >
             Edit
             </NavLink>
+            {/*
             <NavLink className="addHomeWorkPath"
         to={`/add-homework`}
       >
       Homework  +
-        </NavLink>
+            </NavLink>
 <HomeworkList homeworkList={this.context.homeworkList.filter(homework=>homework.classId== this.props.classId)} ></HomeworkList>
-      </div>
+    */}
+</div>
     
    
     
