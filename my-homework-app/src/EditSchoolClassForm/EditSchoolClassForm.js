@@ -160,7 +160,7 @@ class EditSchoolClassForm extends React.Component {
           <div className="form-group">
             <label htmlFor="classname">Name *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.className.value} onChange={e => this.updateClassName(e.target.value)} />
+              name="classname" id="classname" value={this.state.className.value} onChange={e => this.updateClassName(e.target.value)} required="required"/>
             <label for="startDate">Start Date</label>
 
             <input type="date" id="startDate" name="startDate" value={this.state.startDate} onChange={e => this.updateStartDate(e.target.value)} ></input>
