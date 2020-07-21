@@ -113,7 +113,7 @@ console.log(n);
     
           this.context.updateHomework(homework,this.context.getHomeworkId());
       
-        this.props.history.push(`/`);
+        this.props.history.goBack();
         console.log("Homework"+ this.context.homeworkList);
         }}>
           <h2 className="classDetailsHeading"> Class Details</h2>
