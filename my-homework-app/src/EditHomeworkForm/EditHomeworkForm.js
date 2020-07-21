@@ -53,7 +53,7 @@ class EditHomeworkForm extends React.Component {
     e.preventDefault();
     this.context.deleteHomework(this.context.getHomeworkId());
   
-      this.props.history.push("/");
+      this.props.history.goBack();
     }
 
   updateDescription(description) {
@@ -124,7 +124,7 @@ console.log(n);
           <div className="form-group">
             <label htmlFor="homeworkDesc">Description *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} required="required"/>
+              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)}/>
            <label for="cars">Class:</label>
             <select name="schoolClass" id="schoolClass" value={this.state.classId} onChange={this.updateClass} required="required">
               {
