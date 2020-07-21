@@ -123,10 +123,9 @@ class AddHomeworkForm extends React.Component {
           <div className="form-group">
             <label htmlFor="homeworkDesc">Description *</label>
             <input type="text" className="folder__control"
-              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} />
+              name="classname" id="classname" value={this.state.description.value} onChange={e => this.updateDescription(e.target.value)} required="required"/>
             <label for="cars">Class:</label>
-            <select name="schoolClass" id="schoolClass"  onChange={this.updateClass}>
-            <option value="-">--select--</option>
+            <select name="schoolClass" id="schoolClass"  onChange={this.updateClass} required="required">
               {
 
                 classList.map(schoolClass =>
@@ -176,3 +175,4 @@ class AddHomeworkForm extends React.Component {
 }
 
 export default AddHomeworkForm;
+

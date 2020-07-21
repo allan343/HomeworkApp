@@ -24,7 +24,7 @@ export default class Calender extends React.Component {
       dayOfWeek: '',
       date:''
     };
-
+   
    // this.updateClass = this.updateClass.bind(this);
   }
 
